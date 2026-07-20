@@ -516,22 +516,22 @@
             <tbody>
               <tr>
                 <th scope="row">MPPI</th>
-                <td>0.522</td>
-                <td>287</td>
-                <td>104.6</td>
-                <td><strong>0.244</strong></td>
+                <td>0.552</td>
+                <td>275</td>
+                <td>144.3</td>
+                <td><strong>0.330</strong></td>
               </tr>
               <tr>
                 <th scope="row">Cluster-MPPI</th>
-                <td>0.600</td>
-                <td>240</td>
-                <td>101.6</td>
-                <td>10.949</td>
+                <td>0.522</td>
+                <td>287</td>
+                <td>145.2</td>
+                <td>2.085</td>
               </tr>
               <tr>
                 <th scope="row">BiC-MPPI without clustering</th>
-                <td><strong>0.927</strong></td>
-                <td><strong>44</strong></td>
+                <td>0.927</td>
+                <td>44</td>
                 <td>98.0</td>
                 <td>0.415</td>
               </tr>
@@ -543,11 +543,11 @@
                 <td>3.544</td>
               </tr>
               <tr class="main-setting">
-                <th scope="row">Full BiC-MPPI (DBSCAN) <span class="setting-badge">Full</span></th>
-                <td>0.895</td>
-                <td>63</td>
-                <td>94.6</td>
-                <td>2.540</td>
+                <th scope="row">Full BiC-MPPI <span class="setting-badge">Full</span></th>
+                <td><strong>0.973</strong></td>
+                <td><strong>16</strong></td>
+                <td>84.1</td>
+                <td>3.026</td>
               </tr>
             </tbody>
           </table>
@@ -555,11 +555,11 @@
 
         <div class="content ablation-note" id="ablation-note">
           <p>
-            Full BiC-MPPI with DBSCAN achieved a success rate of 0.895 in this controlled ablation.
-            The no-clustering variant reached the highest success rate, 0.927, while removing
-            Guide MPPI reduced the success rate to 0.882.
+            Full BiC-MPPI with K-means achieved the highest success rate, 0.973, in this controlled ablation.
+            Removing clustering reduced the success rate to 0.927, while removing Guide MPPI
+            reduced it to 0.882.
           </p>
-          <p class="table-note">Rates are fractions. Iteration counts and times are means over successful trials. This controlled ablation uses its own shared protocol, so its rows should not be compared one-for-one with the main benchmark table above.</p>
+          <p class="table-note">Rates are fractions. Iteration counts and times are means over successful trials. Cluster-MPPI uses DBSCAN, and Full BiC-MPPI uses K-means.</p>
         </div>
         </div>
       </div>
