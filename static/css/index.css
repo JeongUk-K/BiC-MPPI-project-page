@@ -732,6 +732,16 @@ code {
   text-align: left !important;
 }
 
+/* Keep table headers and row labels in normal document flow. */
+.benchmark-table th,
+.appendix-table th,
+.ablation-table th,
+.waypoint-table th {
+  position: static !important;
+  inset: auto !important;
+  z-index: auto !important;
+}
+
 .benchmark-table .ours-setting > :first-child,
 .appendix-table .main-setting > :first-child,
 .ablation-table .main-setting > :first-child,
