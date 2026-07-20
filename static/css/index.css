@@ -31,11 +31,59 @@ html {
 body {
   font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
   color: var(--text-primary);
-  line-height: 1.6;
+  line-height: 1.7;
   font-size: 16px;
   background-color: var(--background-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Compact navigation for this long-form project page */
+.page-nav {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  background: rgb(255 255 255 / 0.92);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.page-nav-inner {
+  display: flex;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0.65rem 1rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.page-nav-inner::-webkit-scrollbar {
+  display: none;
+}
+
+.page-nav a {
+  flex: 0 0 auto;
+  padding: 0.45rem 0.7rem;
+  color: var(--text-secondary);
+  border-radius: 999px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.page-nav a:hover {
+  color: var(--primary-color);
+  background: var(--background-accent);
+}
+
+section[id] {
+  scroll-margin-top: 4.5rem;
 }
 
 
@@ -103,6 +151,15 @@ body {
   padding: 4rem 1.5rem;
 }
 
+.section {
+  padding-top: 4.5rem;
+  padding-bottom: 4.5rem;
+}
+
+.container.is-max-desktop {
+  max-width: 1040px !important;
+}
+
 .teaser .hero-body {
   padding-top: 2rem;
   padding-bottom: 4rem;
@@ -118,8 +175,11 @@ body {
     font-family: 'Inter', sans-serif !important;
     font-weight: 800 !important;
     color: var(--text-primary) !important;
-    margin-bottom: 2rem !important;
-    line-height: 1.1 !important;
+    max-width: 1100px;
+    margin: 0 auto 1.75rem !important;
+    font-size: clamp(2.25rem, 4.4vw, 3.5rem) !important;
+    line-height: 1.12 !important;
+    letter-spacing: -0.035em;
 }
 
 .publication-banner {
@@ -142,13 +202,13 @@ body {
 }
 
 .publication-header .hero-body {
-  padding: 6rem 1.5rem 4rem;
+  padding: 4.5rem 1.5rem 3.5rem;
 }
 
 .publication-authors {
     font-family: 'Inter', sans-serif !important;
     font-weight: 500;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .publication-venue {
@@ -313,7 +373,7 @@ body {
   font-family: 'Inter', sans-serif !important;
   font-weight: 700 !important;
   color: var(--text-primary);
-  margin-bottom: 2rem !important;
+  margin-bottom: 2.25rem !important;
   position: relative;
   padding-bottom: 1rem;
 }
@@ -335,6 +395,7 @@ body {
   font-size: 1.1rem;
   line-height: 1.8;
   color: var(--text-secondary);
+  text-align: left !important;
 }
 
 .content.has-text-justified p {
@@ -516,7 +577,11 @@ code {
 
 .result-notes {
   max-width: 780px;
-  margin: 2rem auto 0;
+  margin: 2.5rem auto 0;
+  padding: 1.5rem 1.75rem;
+  background: var(--background-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
 }
 
 .result-notes li {
@@ -585,6 +650,42 @@ code {
 .benchmark-table tbody th {
   color: var(--text-primary);
   text-align: left !important;
+}
+
+.benchmark-table thead th,
+.sensitivity-table thead th,
+.waypoint-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+}
+
+.benchmark-table tr > :first-child,
+.sensitivity-table tr > :first-child,
+.waypoint-table tr > :first-child {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  background: var(--background-primary);
+  box-shadow: 1px 0 0 var(--border-color);
+}
+
+.benchmark-table thead tr > :first-child,
+.sensitivity-table thead tr > :first-child,
+.waypoint-table thead tr > :first-child {
+  z-index: 4;
+  background: var(--background-accent);
+}
+
+.benchmark-table .ours-setting > :first-child,
+.sensitivity-table .main-setting > :first-child,
+.waypoint-table .ours-setting > :first-child {
+  background: #eef4ff;
+}
+
+.table-container {
+  scrollbar-color: var(--text-light) var(--background-accent);
+  scrollbar-width: thin;
 }
 
 .benchmark-table .ours-setting {
@@ -962,6 +1063,20 @@ code {
 
 /* Mobile Responsive Improvements */
 @media screen and (max-width: 768px) {
+  .page-nav-inner {
+    justify-content: flex-start;
+  }
+
+  .page-nav a {
+    padding: 0.4rem 0.62rem;
+    font-size: 0.78rem;
+  }
+
+  .section {
+    padding-top: 3.25rem;
+    padding-bottom: 3.25rem;
+  }
+
   .hero-body {
     padding: 2rem 1rem;
   }
@@ -1069,7 +1184,7 @@ code {
   }
 }
 
-/* Animation for page load */
+/* Animation definition retained for opt-in use */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -1079,10 +1194,6 @@ code {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.hero, .section {
-  animation: fadeInUp 0.6s ease-out;
 }
 
 /* Improved focus states for accessibility */
