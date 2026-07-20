@@ -232,25 +232,25 @@
         <div class="columns is-multiline demo-grid">
           <div class="column is-half">
             <figure class="demo-card">
-              <img src="static/images/wmrobot_map_285_mppi_paths.gif" alt="MPPI path evolution on modified BARN map 285" loading="lazy">
+              <img src="static/images/wmrobot/wmrobot_map_285_mppi_paths.gif" alt="MPPI path evolution on modified BARN map 285" loading="lazy">
               <figcaption>MPPI</figcaption>
             </figure>
           </div>
           <div class="column is-half">
             <figure class="demo-card">
-              <img src="static/images/wmrobot_map_285_log_mppi_paths.gif" alt="Log-MPPI path evolution on modified BARN map 285" loading="lazy">
+              <img src="static/images/wmrobot/wmrobot_map_285_log_mppi_paths.gif" alt="Log-MPPI path evolution on modified BARN map 285" loading="lazy">
               <figcaption>Log-MPPI</figcaption>
             </figure>
           </div>
           <div class="column is-half">
             <figure class="demo-card">
-              <img src="static/images/wmrobot_map_285_cluster_mppi_paths.gif" alt="Cluster-MPPI path evolution on modified BARN map 285" loading="lazy">
+              <img src="static/images/wmrobot/wmrobot_map_285_cluster_mppi_paths.gif" alt="Cluster-MPPI path evolution on modified BARN map 285" loading="lazy">
               <figcaption>Cluster-MPPI</figcaption>
             </figure>
           </div>
           <div class="column is-half">
             <figure class="demo-card demo-card-highlight">
-              <img src="static/images/wmrobot_map_285_bi_mppi_paths.gif" alt="BiC-MPPI path evolution on modified BARN map 285" loading="lazy">
+              <img src="static/images/wmrobot/wmrobot_map_285_bi_mppi_paths.gif" alt="BiC-MPPI path evolution on modified BARN map 285" loading="lazy">
               <figcaption>BiC-MPPI (ours)</figcaption>
             </figure>
           </div>
@@ -263,6 +263,206 @@
             Your browser does not support WebM video.
           </video>
           <p>Simulated joint-space planning with task-space collision checking around an axis-aligned obstacle.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section hero is-light" id="dbscan-sensitivity">
+      <div class="container is-max-desktop">
+        <div class="has-text-centered">
+          <h2 class="title is-3">DBSCAN Radius Sensitivity</h2>
+          <p class="section-intro">
+            Sensitivity of the 2D experiments to the DBSCAN neighborhood radius
+            <em>&epsilon;<sub>max</sub></em>. Times are averaged over successful trials.
+          </p>
+        </div>
+
+        <div class="table-container sensitivity-table-wrap">
+          <table class="table is-fullwidth is-hoverable sensitivity-table">
+            <thead>
+              <tr>
+                <th scope="col">&epsilon;<sub>max</sub></th>
+                <th scope="col">Rollout [s]</th>
+                <th scope="col">Clustering [s]</th>
+                <th scope="col">Connection [s]</th>
+                <th scope="col">Guide [s]</th>
+                <th scope="col">SR [%] &uarr;</th>
+                <th scope="col">Time [s] &darr;</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">0.100</th>
+                <td>0.110</td>
+                <td>0.016</td>
+                <td>0.001</td>
+                <td>0.021</td>
+                <td>66.3</td>
+                <td><strong>0.148</strong></td>
+              </tr>
+              <tr>
+                <th scope="row">0.050</th>
+                <td>0.110</td>
+                <td>113.639</td>
+                <td>0.160</td>
+                <td>0.841</td>
+                <td><strong>96.8</strong></td>
+                <td>114.750</td>
+              </tr>
+              <tr class="main-setting">
+                <th scope="row">0.010 <span class="setting-badge">Main</span></th>
+                <td>0.114</td>
+                <td>3.620</td>
+                <td>0.017</td>
+                <td>0.383</td>
+                <td>95.3</td>
+                <td>4.134</td>
+              </tr>
+              <tr>
+                <th scope="row">0.005</th>
+                <td>0.115</td>
+                <td>0.840</td>
+                <td>0.002</td>
+                <td>0.142</td>
+                <td>94.2</td>
+                <td>1.099</td>
+              </tr>
+              <tr>
+                <th scope="row">0.001</th>
+                <td>0.109</td>
+                <td>1.162</td>
+                <td>0.001</td>
+                <td>0.102</td>
+                <td>93.2</td>
+                <td>1.375</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="content sensitivity-note">
+          <p>
+            The main experiments use <em>&epsilon;<sub>max</sub> = 0.01</em> as a
+            reliability&ndash;runtime trade-off point. Although
+            <em>&epsilon;<sub>max</sub> = 0.050</em> gives the highest observed success
+            rate of <strong>96.8%</strong>, it requires <strong>114.750 s</strong> of
+            total elapsed computation.
+          </p>
+          <p class="table-note">SR: success rate; times: successful trials.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="waypoint-usage">
+      <div class="container is-max-desktop">
+        <div class="has-text-centered">
+          <h2 class="title is-3">Waypoint-assisted Usage Case</h2>
+          <p class="section-intro">
+            A five-room WMRobot environment in which rooms are connected by coarse portal waypoints.
+            All planners receive the same prior waypoint information.
+          </p>
+        </div>
+
+        <div class="content waypoint-description">
+          <p>
+            BiC-MPPI uses parallel bidirectional rollouts to connect waypoint-guided segments,
+            whereas the unidirectional baselines attempt the same long-horizon waypoint task
+            without bidirectional connection. Across 10 waypoint-assisted scenarios, MPPI,
+            Log-MPPI, and Cluster-MPPI do not reach the final goal. BiC-MPPI succeeds in
+            6 of 10 scenarios and reaches all six waypoints on average.
+          </p>
+        </div>
+
+        <figure class="waypoint-overview">
+          <img src="static/images/waypoint/wmrobot_stitched_paths_scenario_00.png" alt="Final paths of MPPI variants across the five-room waypoint-assisted WMRobot scenario" loading="lazy">
+          <figcaption>
+            Final path comparison for waypoint-assisted scenario 00. The unidirectional baselines
+            terminate before the final goal, while BiC-MPPI connects the waypoint-guided segments
+            and traverses the complete stitched environment.
+          </figcaption>
+        </figure>
+
+        <div class="waypoint-animation-heading has-text-centered">
+          <h3 class="title is-4">Waypoint-guided Path Evolution</h3>
+        </div>
+
+        <div class="columns is-multiline waypoint-animation-grid">
+          <div class="column is-full">
+            <figure class="demo-card waypoint-demo-card">
+              <img src="static/images/waypoint/wmrobot_stitched_mppi_scenario_00.gif" alt="MPPI waypoint-assisted path evolution in scenario 00" loading="lazy">
+              <figcaption>MPPI</figcaption>
+            </figure>
+          </div>
+          <div class="column is-full">
+            <figure class="demo-card waypoint-demo-card">
+              <img src="static/images/waypoint/wmrobot_stitched_log_mppi_scenario_00.gif" alt="Log-MPPI waypoint-assisted path evolution in scenario 00" loading="lazy">
+              <figcaption>Log-MPPI</figcaption>
+            </figure>
+          </div>
+          <div class="column is-full">
+            <figure class="demo-card waypoint-demo-card">
+              <img src="static/images/waypoint/wmrobot_stitched_cluster_mppi_scenario_00.gif" alt="Cluster-MPPI waypoint-assisted path evolution in scenario 00" loading="lazy">
+              <figcaption>Cluster-MPPI</figcaption>
+            </figure>
+          </div>
+          <div class="column is-full">
+            <figure class="demo-card demo-card-highlight waypoint-demo-card">
+              <img src="static/images/waypoint/wmrobot_stitched_bi_mppi_scenario_00.gif" alt="BiC-MPPI waypoint-assisted bidirectional path evolution in scenario 00" loading="lazy">
+              <figcaption>BiC-MPPI (ours)</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="table-container waypoint-table-wrap">
+          <table class="table is-fullwidth is-hoverable waypoint-table">
+            <thead>
+              <tr>
+                <th scope="col">Method</th>
+                <th scope="col">Scenarios</th>
+                <th scope="col">SR [-] &uarr;</th>
+                <th scope="col">Time [s] &darr;</th>
+                <th scope="col">Reached WP [-] &uarr;</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">MPPI</th>
+                <td>10</td>
+                <td>0.0</td>
+                <td>0.180</td>
+                <td>1.1</td>
+              </tr>
+              <tr>
+                <th scope="row">Log-MPPI</th>
+                <td>10</td>
+                <td>0.0</td>
+                <td>0.229</td>
+                <td>1.0</td>
+              </tr>
+              <tr>
+                <th scope="row">Cluster-MPPI</th>
+                <td>10</td>
+                <td>0.0</td>
+                <td>1.504</td>
+                <td>1.0</td>
+              </tr>
+              <tr class="ours-setting">
+                <th scope="row">BiC-MPPI <span class="setting-badge">Ours</span></th>
+                <td>10</td>
+                <td><strong>0.6</strong></td>
+                <td>9.279</td>
+                <td><strong>6.0</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="content waypoint-conclusion">
+          <p>
+            The result shows that BiC-MPPI can serve as a local bidirectional connector when
+            coarse waypoint information is available, at the cost of additional computation.
+          </p>
+          <p class="table-note">SR: success rate; WP: waypoint.</p>
         </div>
       </div>
     </section>

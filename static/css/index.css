@@ -577,6 +577,135 @@ code {
   color: var(--text-secondary);
 }
 
+.sensitivity-table-wrap,
+.waypoint-table-wrap {
+  margin-top: 1.5rem;
+  background: var(--background-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.sensitivity-table,
+.waypoint-table {
+  min-width: 760px;
+  margin-bottom: 0 !important;
+  background: transparent !important;
+}
+
+.sensitivity-table th,
+.sensitivity-table td,
+.waypoint-table th,
+.waypoint-table td {
+  padding: 0.85rem 0.75rem !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  white-space: nowrap;
+}
+
+.sensitivity-table thead th,
+.waypoint-table thead th {
+  color: var(--text-primary);
+  background: var(--background-accent);
+  border-bottom: 2px solid var(--border-color);
+}
+
+.sensitivity-table tbody th,
+.waypoint-table tbody th {
+  color: var(--text-primary);
+}
+
+.sensitivity-table .main-setting {
+  background: rgb(37 99 235 / 0.08);
+}
+
+.waypoint-table .ours-setting {
+  background: rgb(37 99 235 / 0.08);
+}
+
+.waypoint-table {
+  min-width: 640px;
+}
+
+.setting-badge {
+  display: inline-block;
+  margin-left: 0.35rem;
+  padding: 0.15rem 0.45rem;
+  color: #fff;
+  background: var(--primary-color);
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.sensitivity-note {
+  max-width: 820px;
+  margin: 1.5rem auto 0;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+.sensitivity-note .table-note {
+  margin-top: 0.75rem;
+  color: var(--text-light);
+  font-size: 0.875rem;
+}
+
+.waypoint-description,
+.waypoint-conclusion {
+  max-width: 820px;
+  margin: 1.5rem auto;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+.waypoint-overview {
+  margin: 2rem 0;
+  padding: 1rem;
+  background: var(--background-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+.waypoint-overview img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+}
+
+.waypoint-overview figcaption {
+  max-width: 820px;
+  margin: 1rem auto 0;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  text-align: center;
+}
+
+.waypoint-animation-heading {
+  margin-top: 2.5rem;
+}
+
+.waypoint-animation-grid {
+  max-width: 1040px;
+  margin: 0 auto 2rem !important;
+}
+
+.waypoint-demo-card img {
+  max-height: none;
+}
+
+.waypoint-conclusion .table-note {
+  margin-top: 0.75rem;
+  color: var(--text-light);
+  font-size: 0.875rem;
+}
+
 /* Scroll to Top Button */
 .scroll-to-top {
   position: fixed;
@@ -907,4 +1036,3 @@ a:focus {
     box-shadow: none !important;
   }
 }
-
