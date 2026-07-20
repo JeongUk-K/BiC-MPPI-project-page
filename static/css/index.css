@@ -732,34 +732,6 @@ code {
   text-align: left !important;
 }
 
-.benchmark-table thead th,
-.appendix-table thead th,
-.ablation-table thead th,
-.waypoint-table thead th {
-  position: sticky;
-  top: 3.5rem;
-  z-index: 3;
-}
-
-.benchmark-table tr > :first-child,
-.appendix-table tr > :first-child,
-.ablation-table tr > :first-child,
-.waypoint-table tr > :first-child {
-  position: sticky;
-  left: 0;
-  z-index: 2;
-  background: var(--background-primary);
-  box-shadow: 1px 0 0 var(--border-color);
-}
-
-.benchmark-table thead tr > :first-child,
-.appendix-table thead tr > :first-child,
-.ablation-table thead tr > :first-child,
-.waypoint-table thead tr > :first-child {
-  z-index: 4;
-  background: var(--background-accent);
-}
-
 .benchmark-table .ours-setting > :first-child,
 .appendix-table .main-setting > :first-child,
 .ablation-table .main-setting > :first-child,
