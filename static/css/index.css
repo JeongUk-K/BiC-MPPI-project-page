@@ -523,6 +523,78 @@ code {
   margin-bottom: 0.6rem;
 }
 
+.benchmark-results {
+  margin-top: 2.5rem;
+}
+
+.benchmark-block + .benchmark-block {
+  margin-top: 3.5rem;
+}
+
+.benchmark-caption,
+.benchmark-note {
+  color: var(--text-secondary);
+  line-height: 1.65;
+  text-align: center;
+}
+
+.benchmark-caption {
+  margin: -0.5rem auto 1rem;
+}
+
+.benchmark-note {
+  margin: 0.8rem auto 0;
+  font-size: 0.82rem;
+}
+
+.benchmark-table-wrap {
+  background: var(--background-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.benchmark-table {
+  margin-bottom: 0 !important;
+  background: transparent !important;
+  font-size: 0.82rem;
+}
+
+.ground-vehicle-table {
+  min-width: 1180px;
+}
+
+.manipulator-table {
+  min-width: 880px;
+}
+
+.benchmark-table th,
+.benchmark-table td {
+  padding: 0.72rem 0.6rem !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  white-space: nowrap;
+}
+
+.benchmark-table thead th {
+  color: var(--text-primary);
+  background: var(--background-accent);
+  border-bottom: 2px solid var(--border-color);
+}
+
+.benchmark-table tbody th {
+  color: var(--text-primary);
+  text-align: left !important;
+}
+
+.benchmark-table .ours-setting {
+  background: rgb(37 99 235 / 0.06);
+}
+
+.benchmark-table .best-setting {
+  background: rgb(37 99 235 / 0.11);
+}
+
 .section-intro {
   max-width: 720px;
   margin: -0.75rem auto 1.5rem;
@@ -698,6 +770,8 @@ code {
 
 .waypoint-demo-card img {
   max-height: none;
+  aspect-ratio: 20 / 7;
+  object-fit: contain;
 }
 
 .waypoint-conclusion .table-note {
