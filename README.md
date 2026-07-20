@@ -13,7 +13,7 @@ The page presents:
 
 - an overview of bidirectional clustered branch generation, branch association, and Guide MPPI refinement;
 - the modified BARN ground-vehicle and simulated 6-DOF manipulator results reported in the current manuscript;
-- the sampling-budget scaling and component-ablation results collected in the WMRobot appendix; and
+- the sampling-budget scaling and component-ablation results collected in the ground-vehicle planning appendix; and
 - a clearly labeled, website-only waypoint-assisted use case that is not part of the paper benchmark.
 
 ## Local preview

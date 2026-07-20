@@ -48,6 +48,7 @@
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/index.css">
 
+  <script defer src="static/js/fontawesome.all.min.js"></script>
   <script defer src="static/js/index.js"></script>
 
   <script type="application/ld+json">
@@ -63,7 +64,7 @@
     ],
     "datePublished": "2026",
     "dateModified": "2026-07-20",
-    "version": "Revised manuscript (2026)",
+
     "url": "https://jeonguk-k.github.io/BiC-MPPI-project-page/",
     "image": "https://jeonguk-k.github.io/BiC-MPPI-project-page/static/images/method_overview.png",
     "keywords": ["BiC-MPPI", "MPPI", "trajectory optimization", "kinodynamic planning", "robotics"],
@@ -74,8 +75,6 @@
   </script>
 </head>
 <body>
-  <a class="skip-link" href="#main-content">Skip to main content</a>
-
   <button type="button" class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
     <svg class="inline-icon" aria-hidden="true" viewBox="0 0 24 24">
       <path d="m6 15 6-6 6 6"></path>
@@ -113,7 +112,7 @@
               </div>
 
               <div class="is-size-5 publication-authors">
-                <span class="author-block">Department of Electrical and Computer Engineering, Inha University, Republic of Korea</span><br>
+                <span class="author-block">Department of Electrical and Electronic Engineering, Inha University, Republic of Korea</span><br>
                 <span class="publication-venue">Revised manuscript, 2026</span>
                 <span class="corresponding-author"><sup>*</sup>Corresponding author</span>
               </div>
@@ -121,34 +120,20 @@
               <div class="publication-links">
                 <span class="link-block">
                   <a href="static/pdfs/main.pdf" target="_blank" rel="noopener" class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <svg class="inline-icon" aria-hidden="true" viewBox="0 0 24 24">
-                        <path d="M7 3h7l4 4v14H7z"></path>
-                        <path d="M14 3v5h5M9.5 13h5M9.5 17h5"></path>
-                      </svg>
-                    </span>
-                    <span>Current Manuscript</span>
+                    <span class="icon"><i class="fas fa-file-pdf" aria-hidden="true"></i></span>
+                    <span>Paper</span>
                   </a>
                 </span>
                 <span class="link-block">
                   <a href="https://arxiv.org/abs/2410.06493" target="_blank" rel="noopener" class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <svg class="inline-icon" aria-hidden="true" viewBox="0 0 24 24">
-                        <path d="M4 5.5c2.8-.7 5.5-.2 8 1.5 2.5-1.7 5.2-2.2 8-1.5v13c-2.8-.7-5.5-.2-8 1.5-2.5-1.7-5.2-2.2-8-1.5z"></path>
-                        <path d="M12 7v13"></path>
-                      </svg>
-                    </span>
+                    <span class="icon"><i class="fas fa-book-open" aria-hidden="true"></i></span>
                     <span>arXiv</span>
                   </a>
                 </span>
                 <span class="link-block">
                   <a href="https://github.com/JeongUk-K/BiC-MPPI-GPU-" target="_blank" rel="noopener" class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <svg class="inline-icon" aria-hidden="true" viewBox="0 0 24 24">
-                        <path d="m9 8-4 4 4 4M15 8l4 4-4 4M13.5 5l-3 14"></path>
-                      </svg>
-                    </span>
-                    <span>Development Code</span>
+                    <span class="icon"><i class="fab fa-github" aria-hidden="true"></i></span>
+                    <span>Code</span>
                   </a>
                 </span>
               </div>
@@ -173,7 +158,6 @@
               BiC-MPPI clusters forward rollouts from the current state and heuristic reverse-time
               rollouts from the goal, retains multiple representatives in each direction, and uses
               their connections as references for forward Guide MPPI refinement before receding-horizon execution.
-              <a class="figure-link" href="static/images/method_overview.png" target="_blank" rel="noopener">Open the full-resolution figure</a>.
             </figcaption>
           </figure>
         </div>
@@ -521,7 +505,7 @@
           </p>
         <section class="table-container ablation-table-wrap" aria-label="Scrollable component ablation results" tabindex="0">
           <table class="table is-fullwidth is-hoverable ablation-table" aria-describedby="ablation-note">
-            <caption class="sr-only">Component ablation on 600 modified BARN ground-vehicle trials</caption>
+            <caption class="sr-only">Component ablation on 600 modified ground-vehicle trials</caption>
             <thead>
               <tr>
                 <th scope="col">Method</th>
@@ -612,7 +596,6 @@
           <figcaption>
             Final-path comparison for supplementary scenario 00. In this example, the sequential
             configurations terminate before the final goal, while BiC-MPPI traverses the full stitched environment.
-            <a class="figure-link" href="static/images/waypoint/wmrobot_stitched_paths_scenario_00.png" target="_blank" rel="noopener">Open the full-resolution figure</a>.
           </figcaption>
         </figure>
 

@@ -46,25 +46,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.skip-link {
-  position: fixed;
-  top: 0.75rem;
-  left: 0.75rem;
-  z-index: 2000;
-  padding: 0.65rem 0.9rem;
-  color: #fff;
-  background: var(--primary-color);
-  border-radius: 0.5rem;
-  font-weight: 700;
-  transform: translateY(-160%);
-  transition: transform 0.2s ease;
-}
-
-.skip-link:focus {
-  color: #fff;
-  transform: translateY(0);
-}
-
 .sr-only {
   position: absolute !important;
   width: 1px !important;
@@ -527,8 +508,7 @@ code {
   font-size: 0.9rem;
 }
 
-.citation-version-link a,
-.figure-link {
+.citation-version-link a {
   color: var(--primary-color);
   font-weight: 600;
   text-decoration: underline;
