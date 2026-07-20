@@ -296,7 +296,7 @@
               </table>
             </section>
             <p class="benchmark-note" id="ground-results-note">
-              Rates are fractions; failures include collision terminations. Iteration counts and times are means over successful trials.
+              Iteration counts and times are means over successful trials.
               Stage times may not sum exactly to the total because of rounding and measurement overhead.
             </p>
           </div>
@@ -304,8 +304,7 @@
           <div class="benchmark-block">
             <h3 class="title is-4 has-text-centered">6-DOF Manipulator Planning</h3>
             <p class="benchmark-caption" id="manipulator-results-description">
-              Results from 16 reference postures and all ordered non-self start&ndash;goal pairs (240 tasks),
-              with one axis-aligned obstacle per pair. Overall success requires the strict goal criterion and collision-free execution.
+              Results from 16 reference postures and all ordered non-self start&ndash;goal pairs (240 tasks). Overall success requires the strict goal criterion and collision-free execution.
             </p>
             <section class="table-container benchmark-table-wrap" aria-label="Scrollable manipulator planning results" tabindex="0">
               <table class="table is-fullwidth is-hoverable benchmark-table manipulator-table" aria-describedby="manipulator-results-description manipulator-results-note">
@@ -352,8 +351,7 @@
             </section>
             <p class="benchmark-note" id="manipulator-results-note">
               Strict goal: joint error &lt; 0.03 rad, end-effector error &lt; 0.05 m, and joint-velocity norm &lt; 0.2 rad/s.
-              EE + velocity omits the joint-error criterion. All rates are fractions over 240 tasks;
-              iteration counts and wall times are means over successful tasks only.
+              EE + velocity omits the joint-error criterion. Iteration counts and wall times are means over successful tasks only.
             </p>
           </div>
         </div>
