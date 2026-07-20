@@ -486,18 +486,21 @@
         <div class="has-text-centered">
           <h2 class="title is-3">Waypoint-assisted Usage Case</h2>
           <p class="section-intro">
-            A five-room WMRobot environment in which rooms are connected by coarse portal waypoints.
-            All planners receive the same prior waypoint information.
+            This supplementary use case, which is not included in the paper, is constructed by
+            stitching together five WMRobot maps and setting the goal of each map as a waypoint.
+            All planners receive the same waypoint sequence.
           </p>
         </div>
 
         <div class="content waypoint-description">
           <p>
-            BiC-MPPI uses parallel bidirectional rollouts to connect waypoint-guided segments,
-            whereas the unidirectional baselines attempt the same long-horizon waypoint task
-            without bidirectional connection. Across 10 waypoint-assisted scenarios, MPPI,
-            Log-MPPI, and Cluster-MPPI do not reach the final goal. BiC-MPPI succeeds in
-            6 of 10 scenarios and reaches all six waypoints on average.
+            BiC-MPPI uses the waypoints to perform bidirectional rollouts for multiple segments
+            in parallel and connect the resulting waypoint-guided branches. In contrast, the
+            MPPI variants&mdash;MPPI, Log-MPPI, and Cluster-MPPI&mdash;follow the waypoint sequence
+            one waypoint at a time, using each waypoint as the current tracking target before
+            proceeding to the next. Across 10 waypoint-assisted scenarios, these MPPI variants
+            do not reach the final goal, whereas BiC-MPPI succeeds in 6 of 10 scenarios and
+            reaches all six waypoints on average.
           </p>
         </div>
 
