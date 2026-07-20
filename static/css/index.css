@@ -415,7 +415,166 @@ code {
 }
 
 .copy-bibtex-btn.copied .copy-text::after {
-  content: "ied!";
+  content: "";
+}
+
+/* BiC-MPPI project-page sections */
+.method-figure {
+  margin: 0;
+  padding: 1.25rem;
+  background: var(--background-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+.method-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+}
+
+.method-figure figcaption {
+  margin-top: 1rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.method-steps {
+  align-items: stretch;
+}
+
+.method-steps .column {
+  display: flex;
+}
+
+.method-card,
+.result-card {
+  width: 100%;
+  background: var(--background-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.method-card {
+  padding: 1.5rem;
+}
+
+.step-number {
+  display: inline-flex;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin-bottom: 1rem;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: var(--primary-color);
+  border-radius: 999px;
+  font-weight: 800;
+}
+
+.method-card h3 {
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.method-card p,
+.result-detail,
+.result-notes {
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.result-card {
+  height: 100%;
+  padding: 2rem;
+  text-align: center;
+}
+
+.result-label {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.result-value {
+  margin: 0.35rem 0;
+  color: var(--primary-color);
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.result-detail {
+  margin-top: 0.75rem;
+}
+
+.result-notes {
+  max-width: 780px;
+  margin: 2rem auto 0;
+}
+
+.result-notes li {
+  margin-bottom: 0.6rem;
+}
+
+.section-intro {
+  max-width: 720px;
+  margin: -0.75rem auto 1.5rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.demo-card {
+  height: 100%;
+  margin: 0;
+  padding: 1rem;
+  text-align: center;
+  background: var(--background-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.demo-card-highlight {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgb(37 99 235 / 0.12), var(--shadow-lg);
+}
+
+.demo-card img {
+  display: block;
+  width: 100%;
+  max-height: 620px;
+  object-fit: contain;
+  border-radius: var(--border-radius);
+}
+
+.demo-card figcaption {
+  margin-top: 0.75rem;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.manipulator-demo {
+  margin-top: 2.5rem;
+  text-align: center;
+}
+
+.manipulator-demo video {
+  display: block;
+  width: 100%;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-xl);
+}
+
+.manipulator-demo p {
+  margin-top: 1rem;
+  color: var(--text-secondary);
 }
 
 /* Scroll to Top Button */
@@ -748,6 +907,4 @@ a:focus {
     box-shadow: none !important;
   }
 }
-
-
 
