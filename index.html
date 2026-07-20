@@ -559,6 +559,13 @@
             Removing clustering reduced the success rate to 0.927, while removing Guide MPPI
             reduced it to 0.882.
           </p>
+          <p>
+            <strong>BiC-MPPI without Guide MPPI</strong> retains the forward&ndash;backward branch-connection
+            stage but skips Guide MPPI refinement, selecting the connected trajectory with the lowest
+            trajectory cost instead. <strong>BiC-MPPI without clustering</strong> replaces clustered branch
+            representatives with the 8 lowest-cost rollouts from each direction, treating each
+            selected rollout as an individual branch representative.
+          </p>
           <p class="table-note">Rates are fractions. Iteration counts and times are means over successful trials. Cluster-MPPI uses DBSCAN, and Full BiC-MPPI uses K-means.</p>
         </div>
         </div>
