@@ -1,80 +1,49 @@
-# Academic Project Page Template
+# BiC-MPPI Project Page
 
-> **Update (September 2025)**: This template has been modernized with better design, SEO, and mobile support. For the original version, see the [original-version branch](https://github.com/eliahuhorwitz/Academic-project-page-template/tree/original-version).
+Project page for **BiC-MPPI: Bidirectional Clustering MPPI for Long-Horizon Kinodynamic Trajectory Optimization**.
 
-A clean, responsive template for academic project pages.
+- Project page: <https://jeonguk-k.github.io/BiC-MPPI-project-page/>
+- Current revised manuscript (2026): [static/pdfs/main.pdf](static/pdfs/main.pdf)
+- arXiv: <https://arxiv.org/abs/2410.06493>
+- Development code: <https://github.com/JeongUk-K/BiC-MPPI-GPU->
 
+## Page contents
 
-Example project pages built using this template are:
-- https://horwitz.ai/probex
-- https://vision.huji.ac.il/probegen
-- https://horwitz.ai/mother
-- https://horwitz.ai/spectral_detuning
-- https://vision.huji.ac.il/ladeda
-- https://vision.huji.ac.il/dsire
-- https://horwitz.ai/podd
-- https://dreamix-video-editing.github.io
-- https://horwitz.ai/conffusion
-- https://horwitz.ai/3d_ads/
-- https://vision.huji.ac.il/ssrl_ad
-- https://vision.huji.ac.il/deepsim
+The page presents:
 
+- an overview of bidirectional clustered branch generation, branch association, and Guide MPPI refinement;
+- the modified BARN ground-vehicle and simulated 6-DOF manipulator results reported in the current manuscript;
+- the sampling-budget scaling and component-ablation results collected in the WMRobot appendix; and
+- a clearly labeled, website-only waypoint-assisted use case that is not part of the paper benchmark.
 
+## Local preview
 
-## Start using the template
-To start using the template click on `Use this Template`.
+From the repository root, run:
 
-The template uses html for controlling the content and css for controlling the style. 
-To edit the websites contents edit the `index.html` file. It contains different HTML "building blocks", use whichever ones you need and comment out the rest.  
+```bash
+python3 -m http.server 8000
+```
 
-**IMPORTANT!** Make sure to replace the `favicon.ico` under `static/images/` with one of your own, otherwise your favicon is going to be a dreambooth image of me.
+Then open <http://localhost:8000/>.
 
-## What's New
+## Citation
 
-- Modern, clean design with better mobile support
-- Improved SEO with proper meta tags and structured data
-- Performance improvements (lazy loading, optimized assets)
-- More Works dropdown
-- Copy button for BibTeX citations
-- Better accessibility
+Please cite the arXiv preprint using the following BibTeX entry:
 
-## Components
+```bibtex
+@article{jung2024bicmppi,
+  title         = {BiC-MPPI: Goal-Pursuing, Sampling-Based Bidirectional Rollout Clustering Path Integral for Trajectory Optimization},
+  author        = {Jung, Minchan and Kim, Kwangki},
+  year          = {2024},
+  journal       = {arXiv preprint arXiv:2410.06493},
+  eprint        = {2410.06493},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.RO},
+  doi           = {10.48550/arXiv.2410.06493},
+  url           = {https://arxiv.org/abs/2410.06493}
+}
+```
 
-- Teaser video
-- Image carousel
-- YouTube video embedding
-- Video carousel
-- PDF poster viewer
-- BibTeX citation
+## Acknowledgment
 
-## Customization
-
-The HTML file has TODO comments showing what to replace:
-
-- Paper title, authors, institution, conference
-- Links (arXiv, GitHub, etc.)
-- Abstract and descriptions  
-- Videos, images, and PDFs
-- Related works in the dropdown
-- Meta tags for SEO and social sharing
-
-### Meta Tags
-The template includes meta tags for better search engine visibility and social media sharing. These appear in the `<head>` section and help with:
-- Google Scholar indexing
-- Social media previews (Twitter, Facebook, LinkedIn)
-- Search engine optimization
-
-Create a 1200x630px social preview image at `static/images/social_preview.png`.
-
-## Tips
-
-- Compress images with [TinyPNG](https://tinypng.com)
-- Use YouTube for large videos (>10MB)  
-- Replace the favicon in `static/images/`
-- Works with GitHub Pages
-
-## Acknowledgments
-Parts of this project page were adopted from the [Nerfies](https://nerfies.github.io/) page.
-
-## Website License
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+The site is based on the [Academic Project Page Template](https://github.com/eliahuhorwitz/Academic-project-page-template), adapted from the [Nerfies project page](https://nerfies.github.io/).

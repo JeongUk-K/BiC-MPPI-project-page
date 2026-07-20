@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jeonguk-k.github.io/BiC-MPPI-project-page/sitemap.xml

@@ -6,7 +6,7 @@
 
   <title>BiC-MPPI | Bidirectional Clustering MPPI</title>
   <meta name="title" content="BiC-MPPI: Bidirectional Clustering MPPI for Long-Horizon Kinodynamic Trajectory Optimization">
-  <meta name="description" content="BiC-MPPI is a bidirectional clustering MPPI framework for reliable long-horizon kinodynamic trajectory optimization in cluttered environments.">
+  <meta name="description" content="BiC-MPPI combines clustered forward rollouts, heuristic backward rollouts, and forward Guide MPPI refinement for long-horizon kinodynamic trajectory optimization.">
   <meta name="keywords" content="BiC-MPPI, MPPI, trajectory optimization, motion planning, model predictive control, robotics, kinodynamic planning">
   <meta name="author" content="Minchan Jung, Jeonguk Kim, Kwang-Ki Kim">
   <meta name="robots" content="index, follow">
@@ -19,6 +19,9 @@
   <meta property="og:url" content="https://jeonguk-k.github.io/BiC-MPPI-project-page/">
   <meta property="og:image" content="https://jeonguk-k.github.io/BiC-MPPI-project-page/static/images/method_overview.png">
   <meta property="og:image:alt" content="Overview of the BiC-MPPI framework">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="5227">
+  <meta property="og:image:height" content="2064">
   <meta property="article:author" content="Minchan Jung">
   <meta property="article:author" content="Jeonguk Kim">
   <meta property="article:author" content="Kwang-Ki Kim">
@@ -38,18 +41,13 @@
   <meta name="citation_author" content="Kim, Kwang-Ki">
   <meta name="citation_publication_date" content="2026">
   <meta name="citation_pdf_url" content="https://jeonguk-k.github.io/BiC-MPPI-project-page/static/pdfs/main.pdf">
-  <meta name="citation_arxiv_id" content="2410.06493">
 
   <meta name="theme-color" content="#2563eb">
-  <link rel="icon" href="data:,">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
+  <link rel="canonical" href="https://jeonguk-k.github.io/BiC-MPPI-project-page/">
+  <link rel="icon" href="static/images/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/index.css">
 
-  <script defer src="static/js/fontawesome.all.min.js"></script>
   <script defer src="static/js/index.js"></script>
 
   <script type="application/ld+json">
@@ -64,8 +62,9 @@
       {"@type": "Person", "name": "Kwang-Ki Kim", "email": "kwangki.kim@inha.ac.kr", "affiliation": {"@type": "Organization", "name": "Inha University"}}
     ],
     "datePublished": "2026",
+    "dateModified": "2026-07-20",
+    "version": "Revised manuscript (2026)",
     "url": "https://jeonguk-k.github.io/BiC-MPPI-project-page/",
-    "sameAs": "https://arxiv.org/abs/2410.06493",
     "image": "https://jeonguk-k.github.io/BiC-MPPI-project-page/static/images/method_overview.png",
     "keywords": ["BiC-MPPI", "MPPI", "trajectory optimization", "kinodynamic planning", "robotics"],
     "abstract": "This paper presents Kinodynamic Bidirectional Clustering Model Predictive Path Integral (BiC-MPPI), a sampling-based trajectory optimizer for long-horizon goal-reaching tasks in cluttered environments.",
@@ -75,8 +74,12 @@
   </script>
 </head>
 <body>
-  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
-    <i class="fas fa-chevron-up"></i>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <button type="button" class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+    <svg class="inline-icon" aria-hidden="true" viewBox="0 0 24 24">
+      <path d="m6 15 6-6 6 6"></path>
+    </svg>
   </button>
 
   <nav class="page-nav" aria-label="Project page sections">
@@ -84,10 +87,10 @@
       <a href="#abstract">Abstract</a>
       <a href="#method">Method</a>
       <a href="#results">Results</a>
-      <a href="#demos">Demos</a>
-      <a href="#dbscan-sensitivity">DBSCAN Study</a>
+      <a href="#demos">Simulation Experiments</a>
+      <a href="#appendix">Appendix</a>
       <a href="#waypoint-usage">Waypoints</a>
-      <a href="#BibTeX">BibTeX</a>
+      <a href="#BibTeX">Citation</a>
     </div>
   </nav>
 
@@ -110,28 +113,42 @@
               </div>
 
               <div class="is-size-5 publication-authors">
-                <span class="author-block">Department of Electrical and Computer Engineering, Inha University</span><br>
-                <span class="publication-venue">Preprint, 2024</span>
-                <!-- <span class="eql-cntrb"><small><br><sup>*</sup>Corresponding author</small></span> -->
+                <span class="author-block">Department of Electrical and Computer Engineering, Inha University, Republic of Korea</span><br>
+                <span class="publication-venue">Revised manuscript, 2026</span>
+                <span class="corresponding-author"><sup>*</sup>Corresponding author</span>
               </div>
 
               <div class="publication-links">
                 <span class="link-block">
-                  <a href="static/pdfs/main.pdf" target="_blank" class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon"><i class="fas fa-file-pdf"></i></span>
-                    <span>Paper</span>
+                  <a href="static/pdfs/main.pdf" target="_blank" rel="noopener" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <svg class="inline-icon" aria-hidden="true" viewBox="0 0 24 24">
+                        <path d="M7 3h7l4 4v14H7z"></path>
+                        <path d="M14 3v5h5M9.5 13h5M9.5 17h5"></path>
+                      </svg>
+                    </span>
+                    <span>Current Manuscript</span>
                   </a>
                 </span>
                 <span class="link-block">
                   <a href="https://arxiv.org/abs/2410.06493" target="_blank" rel="noopener" class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon"><i class="fas fa-book-open"></i></span>
+                    <span class="icon">
+                      <svg class="inline-icon" aria-hidden="true" viewBox="0 0 24 24">
+                        <path d="M4 5.5c2.8-.7 5.5-.2 8 1.5 2.5-1.7 5.2-2.2 8-1.5v13c-2.8-.7-5.5-.2-8 1.5-2.5-1.7-5.2-2.2-8-1.5z"></path>
+                        <path d="M12 7v13"></path>
+                      </svg>
+                    </span>
                     <span>arXiv</span>
                   </a>
                 </span>
                 <span class="link-block">
                   <a href="https://github.com/JeongUk-K/BiC-MPPI-GPU-" target="_blank" rel="noopener" class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon"><i class="fab fa-github"></i></span>
-                    <span>Code</span>
+                    <span class="icon">
+                      <svg class="inline-icon" aria-hidden="true" viewBox="0 0 24 24">
+                        <path d="m9 8-4 4 4 4M15 8l4 4-4 4M13.5 5l-3 14"></path>
+                      </svg>
+                    </span>
+                    <span>Development Code</span>
                   </a>
                 </span>
               </div>
@@ -141,18 +158,27 @@
       </div>
     </section>
 
-    <section class="hero teaser">
+    <div class="hero teaser">
       <div class="container is-max-desktop">
         <div class="hero-body">
           <figure class="method-figure">
-            <img src="static/images/method_overview.png" alt="BiC-MPPI pipeline from bidirectional rollouts to clustered branch concatenation and Guide MPPI refinement">
+            <picture>
+              <source
+                type="image/webp"
+                srcset="static/images/optimized/method_overview-1200.webp 1200w, static/images/optimized/method_overview-2400.webp 2400w"
+                sizes="(max-width: 1080px) calc(100vw - 3rem), 1000px">
+              <img src="static/images/method_overview.png" width="5227" height="2064" fetchpriority="high" decoding="async" alt="BiC-MPPI pipeline from bidirectional rollouts to clustered branch concatenation and Guide MPPI refinement">
+            </picture>
             <figcaption>
-              BiC-MPPI retains multiple forward and backward rollout modes, connects opposite-direction branch representatives, and refines each connection through forward Guide MPPI before receding-horizon execution.
+              BiC-MPPI clusters forward rollouts from the current state and heuristic reverse-time
+              rollouts from the goal, retains multiple representatives in each direction, and uses
+              their connections as references for forward Guide MPPI refinement before receding-horizon execution.
+              <a class="figure-link" href="static/images/method_overview.png" target="_blank" rel="noopener">Open the full-resolution figure</a>.
             </figcaption>
           </figure>
         </div>
       </div>
-    </section>
+    </div>
 
     <section class="section hero is-light" id="abstract">
       <div class="container is-max-desktop">
@@ -164,7 +190,7 @@
                 This paper presents Kinodynamic Bidirectional Clustering Model Predictive Path Integral (BiC-MPPI), a sampling-based trajectory optimizer for long-horizon goal-reaching tasks in cluttered environments. BiC-MPPI retains multiple clustered forward branches from the current state and reverse-time heuristic branches from the goal, associates opposite-direction branch representatives, and uses the resulting connections as references for forward Guide MPPI refinement.
               </p>
               <p>
-                On 600 Ground-Vehicle Planning trials, BiC-MPPI achieved a 97.3% success rate, compared with 47.7–54.2% for the evaluated unidirectional baselines. On 240 simulated 6-DOF manipulator tasks, the best BiC-MPPI configuration achieved a 41.7% success rate, compared with 10.0–22.5% for the evaluated baselines. BiC-MPPI evaluates additional backward and guide rollouts; the paper therefore reports the runtime of each algorithmic stage separately.
+                Across 600 modified BARN navigation trials, BiC-MPPI achieved a 97.3% success rate, compared with 47.7–54.2% for the evaluated unidirectional baselines. Across 240 simulated 6-DOF manipulator tasks, the best evaluated BiC-MPPI configuration achieved a 41.7% success rate, compared with 10.0–22.5% for the evaluated baselines. Because BiC-MPPI evaluates additional backward and Guide MPPI rollouts, these are method-configuration comparisons rather than total-computation-matched comparisons. Runtime is therefore reported by algorithmic stage.
               </p>
             </div>
           </div>
@@ -180,24 +206,28 @@
             <div class="method-card">
               <span class="step-number">1</span>
               <h3>Bidirectional Branch Generation</h3>
-              <p>Generate and cluster forward cost-to-come rollouts from the current state and reverse-time heuristic cost-to-go rollouts from the goal.</p>
+              <p>Generate forward cost-to-come rollouts from the current state and heuristic reverse-time cost-to-go rollouts from the goal; cluster each set and retain multiple representatives.</p>
             </div>
           </div>
           <div class="column">
             <div class="method-card">
               <span class="step-number">2</span>
               <h3>Branch Association</h3>
-              <p>Associate forward and backward representatives using a connection metric, trim them at the nearest pair, and concatenate their segments into guide candidates.</p>
+              <p>Associate forward and backward representatives using the connection metric, trim each pair at its closest states, and concatenate the retained segments into a guide candidate.</p>
             </div>
           </div>
           <div class="column">
             <div class="method-card">
               <span class="step-number">3</span>
               <h3>Guide MPPI Refinement</h3>
-              <p>Refine every connected candidate with forward rollouts from the current state, then execute the first control of the lowest-cost dynamically consistent trajectory.</p>
+              <p>Refine each guide candidate with forward Guide MPPI rollouts from the current state, then apply the first control from the lowest-cost dynamically consistent trajectory.</p>
             </div>
           </div>
         </div>
+        <p class="method-note">
+          The backward branches are heuristic goal-side references, not executable reverse-time
+          trajectories. Guide MPPI regenerates forward-dynamically consistent controls from the current state.
+        </p>
       </div>
     </section>
 
@@ -208,40 +238,42 @@
         <div class="columns result-summary">
           <div class="column">
             <div class="result-card">
-              <p class="result-label">Ground-Vehicle Planning</p>
+              <p class="result-label">Modified BARN Navigation</p>
               <p class="result-value">97.3%</p>
-              <p class="result-detail">584 successes over 600 trials with BiC-MPPI-KMeans, versus 47.7–54.2% for the evaluated unidirectional baselines.</p>
+              <p class="result-detail">584 successes over 600 trials with BiC-MPPI (K-means), versus 47.7–54.2% for the evaluated unidirectional baselines.</p>
             </div>
           </div>
           <div class="column">
             <div class="result-card">
               <p class="result-label">6-DOF Manipulator Planning</p>
               <p class="result-value">41.7%</p>
-              <p class="result-detail">100 strict successes over 240 tasks with BiC-MPPI-KMeans, versus 10.0–22.5% for the evaluated baselines.</p>
+              <p class="result-detail">100 successful tasks out of 240 under the full success criterion with BiC-MPPI (K-means), versus 10.0–22.5% for the evaluated baselines.</p>
             </div>
           </div>
         </div>
 
         <div class="benchmark-results">
           <div class="benchmark-block">
-            <h3 class="title is-4 has-text-centered">Ground-Vehicle Planning</h3>
-            <p class="benchmark-caption">
-              Results over 600 Ground-Vehicle Planning trials. Times are averaged over successful trials.
+            <h3 class="title is-4 has-text-centered">Modified BARN Ground-Vehicle Navigation</h3>
+            <p class="benchmark-caption" id="ground-results-description">
+              Results on 300 modified BARN maps with two start states per map (600 trials).
+              A trial succeeds within 200 replanning iterations when its position error falls below 0.1 m.
             </p>
-            <div class="table-container benchmark-table-wrap">
-              <table class="table is-fullwidth is-hoverable benchmark-table ground-vehicle-table">
+            <section class="table-container benchmark-table-wrap" aria-label="Scrollable ground-vehicle planning results" tabindex="0">
+              <table class="table is-fullwidth is-hoverable benchmark-table ground-vehicle-table" aria-describedby="ground-results-description ground-results-note">
+                <caption class="sr-only">Ground-vehicle navigation results over 600 modified BARN trials</caption>
                 <thead>
                   <tr>
                     <th scope="col">Method</th>
-                    <th scope="col">Succ. &uarr;</th>
-                    <th scope="col">SR [-] &uarr;</th>
-                    <th scope="col">Fail. &darr;</th>
-                    <th scope="col">Coll. &darr;</th>
-                    <th scope="col">Iter. &darr;</th>
+                    <th scope="col">Successes &uarr;</th>
+                    <th scope="col">Success rate [-] &uarr;</th>
+                    <th scope="col">Failures &darr;</th>
+                    <th scope="col">Collisions &darr;</th>
+                    <th scope="col">Iterations &darr;</th>
                     <th scope="col">Total [s] &darr;</th>
-                    <th scope="col">Roll. [s]</th>
-                    <th scope="col">Clust. [s]</th>
-                    <th scope="col">Conn. [s]</th>
+                    <th scope="col">Rollout [s]</th>
+                    <th scope="col">Clustering [s]</th>
+                    <th scope="col">Connection [s]</th>
                     <th scope="col">Guide [s]</th>
                   </tr>
                 </thead>
@@ -257,51 +289,53 @@
                     <td>0.291</td><td>0.291</td><td>0</td><td>0</td><td>0</td>
                   </tr>
                   <tr>
-                    <th scope="row">Cluster-MPPI-DBSCAN</th>
+                    <th scope="row">Cluster-MPPI (DBSCAN)</th>
                     <td>313</td><td>0.522</td><td>287</td><td>18</td><td>145.2</td>
                     <td>2.085</td><td>0.224</td><td>1.862</td><td>0</td><td>0</td>
                   </tr>
                   <tr>
-                    <th scope="row">Cluster-MPPI-KMeans</th>
+                    <th scope="row">Cluster-MPPI (K-means)</th>
                     <td>287</td><td>0.478</td><td>313</td><td>13</td><td>151.3</td>
                     <td>2.693</td><td>0.161</td><td>2.532</td><td>0</td><td>0</td>
                   </tr>
                   <tr class="ours-setting">
-                    <th scope="row">BiC-MPPI-DBSCAN <span class="setting-badge">Ours</span></th>
+                    <th scope="row">BiC-MPPI (DBSCAN) <span class="setting-badge">Ours</span></th>
                     <td>537</td><td>0.895</td><td>63</td><td>47</td><td>94.6</td>
                     <td>2.540</td><td>0.189</td><td>2.167</td><td>0.002</td><td>0.182</td>
                   </tr>
                   <tr class="ours-setting best-setting">
-                    <th scope="row">BiC-MPPI-KMeans <span class="setting-badge">Ours</span></th>
+                    <th scope="row">BiC-MPPI (K-means) <span class="setting-badge">Ours</span></th>
                     <td><strong>584</strong></td><td><strong>0.973</strong></td><td><strong>16</strong></td><td>10</td><td><strong>84.1</strong></td>
                     <td>3.026</td><td>0.093</td><td>2.356</td><td>0.023</td><td>0.554</td>
                   </tr>
                 </tbody>
               </table>
-            </div>
-            <p class="benchmark-note">
-              Succ.: successful trials; SR: success rate; Fail.: failed trials; Coll.: collision trials.
+            </section>
+            <p class="benchmark-note" id="ground-results-note">
+              Rates are fractions; failures include collision terminations. Iteration counts and times are means over successful trials.
               Stage times may not sum exactly to the total because of rounding and measurement overhead.
             </p>
           </div>
 
           <div class="benchmark-block">
             <h3 class="title is-4 has-text-centered">6-DOF Manipulator Planning</h3>
-            <p class="benchmark-caption">
-              Results over 240 start&ndash;goal tasks under strict joint, end-effector, velocity, and collision-free conditions.
+            <p class="benchmark-caption" id="manipulator-results-description">
+              Results from 16 reference postures and all ordered non-self start&ndash;goal pairs (240 tasks),
+              with one axis-aligned obstacle per pair. Overall success requires the strict goal criterion and collision-free execution.
             </p>
-            <div class="table-container benchmark-table-wrap">
-              <table class="table is-fullwidth is-hoverable benchmark-table manipulator-table">
+            <section class="table-container benchmark-table-wrap" aria-label="Scrollable manipulator planning results" tabindex="0">
+              <table class="table is-fullwidth is-hoverable benchmark-table manipulator-table" aria-describedby="manipulator-results-description manipulator-results-note">
+                <caption class="sr-only">Manipulator planning results over 240 ordered start-goal tasks</caption>
                 <thead>
                   <tr>
                     <th scope="col">Method</th>
-                    <th scope="col">Succ. &uarr;</th>
-                    <th scope="col">SR [-] &uarr;</th>
-                    <th scope="col">Strict [-] &uarr;</th>
-                    <th scope="col">EE [-] &uarr;</th>
-                    <th scope="col">CF [-] &uarr;</th>
-                    <th scope="col">Iter. [steps] &darr;</th>
-                    <th scope="col">Time [s] &darr;</th>
+                    <th scope="col">Successes &uarr;</th>
+                    <th scope="col">Overall SR [-] &uarr;</th>
+                    <th scope="col">Strict goal [-] &uarr;</th>
+                    <th scope="col">EE + velocity [-] &uarr;</th>
+                    <th scope="col">Collision-free [-] &uarr;</th>
+                    <th scope="col">Iterations [steps] &darr;</th>
+                    <th scope="col">Wall time [s] &darr;</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -314,37 +348,39 @@
                     <td>53</td><td>0.221</td><td>0.254</td><td>0.375</td><td>0.721</td><td>134.5</td><td>3.805</td>
                   </tr>
                   <tr>
-                    <th scope="row">Cluster-MPPI-KM</th>
+                    <th scope="row">Cluster-MPPI (K-means)</th>
                     <td>24</td><td>0.100</td><td>0.113</td><td>0.192</td><td>0.721</td><td>141.8</td><td>5.817</td>
                   </tr>
                   <tr>
-                    <th scope="row">Cluster-MPPI-DB</th>
+                    <th scope="row">Cluster-MPPI (DBSCAN)</th>
                     <td>54</td><td>0.225</td><td>0.258</td><td>0.383</td><td>0.721</td><td>134.8</td><td>5.617</td>
                   </tr>
                   <tr class="ours-setting best-setting">
-                    <th scope="row">BiC-MPPI-KM <span class="setting-badge">Ours</span></th>
+                    <th scope="row">BiC-MPPI (K-means) <span class="setting-badge">Ours</span></th>
                     <td><strong>100</strong></td><td><strong>0.417</strong></td><td><strong>0.471</strong></td><td><strong>0.546</strong></td><td><strong>0.738</strong></td><td>92.1</td><td>11.599</td>
                   </tr>
                   <tr class="ours-setting">
-                    <th scope="row">BiC-MPPI-DB <span class="setting-badge">Ours</span></th>
+                    <th scope="row">BiC-MPPI (DBSCAN) <span class="setting-badge">Ours</span></th>
                     <td>96</td><td>0.400</td><td>0.467</td><td>0.529</td><td>0.733</td><td>85.5</td><td>4.554</td>
                   </tr>
                 </tbody>
               </table>
-            </div>
-            <p class="benchmark-note">
-              KM: K-Means; DB: DBSCAN; EE: end-effector criterion; CF: collision-free rate.
-              Iteration and wall time are averaged over successful trials only.
+            </section>
+            <p class="benchmark-note" id="manipulator-results-note">
+              Strict goal: joint error &lt; 0.03 rad, end-effector error &lt; 0.05 m, and joint-velocity norm &lt; 0.2 rad/s.
+              EE + velocity omits the joint-error criterion. All rates are fractions over 240 tasks;
+              iteration counts and wall times are means over successful tasks only.
             </p>
           </div>
         </div>
 
         <div class="content result-notes">
-          <h3 class="title is-4">Key findings</h3>
+          <h3 class="title is-4">Interpretation and Scope</h3>
           <ul>
-            <li>Bidirectional branch diversity provides explicit goal-side structure that forward-only rollout sampling lacks.</li>
-            <li>Guide MPPI converts connected branch candidates into forward-dynamically consistent control sequences.</li>
-            <li>The reliability gain requires additional clustering, connection, and guide-refinement computation; runtime is therefore decomposed by stage.</li>
+            <li>Retaining branches from both directions introduces goal-side structure that is absent from the evaluated forward-only baselines.</li>
+            <li>Forward Guide MPPI regenerates connected branch candidates as dynamically consistent control sequences from the current state.</li>
+            <li>In the reported configurations, higher success rates come with additional clustering, connection, and Guide MPPI computation; the comparisons are not total-computation matched.</li>
+            <li>The reported results are from static simulated environments. BiC-MPPI has no claimed completeness or formal optimality guarantee, and real-time hardware validation remains future work.</li>
           </ul>
         </div>
       </div>
@@ -353,130 +389,196 @@
     <section class="section" id="demos">
       <div class="container is-max-desktop">
         <div class="has-text-centered">
-          <h2 class="title is-3">Qualitative Results</h2>
-          <p class="section-intro">Path evolution on the same modified BARN map. The star marks the goal and the robot starts at the bottom of the map.</p>
+          <h2 class="title is-3">Simulation Experiments</h2>
+          <p class="section-intro">All four animations show modified BARN map 285. The clustering-based planners use DBSCAN. The robot starts at the bottom of the map, and the star marks the goal.</p>
         </div>
 
         <div class="columns is-multiline demo-grid">
           <div class="column is-half">
             <figure class="demo-card">
-              <img src="static/images/wmrobot/wmrobot_map_285_mppi_paths.gif" alt="MPPI path evolution on modified BARN map 285" loading="lazy">
-              <figcaption>MPPI</figcaption>
+              <video controls muted loop playsinline preload="none" width="638" height="880" poster="static/images/optimized/wmrobot_map_285_mppi_paths-poster.webp" aria-label="MPPI path evolution on modified BARN map 285; the run does not reach the goal">
+                <source src="static/videos/web/wmrobot_map_285_mppi_paths.mp4" type="video/mp4">
+                Your browser does not support MP4 video.
+              </video>
+              <figcaption>MPPI &mdash; final goal not reached</figcaption>
             </figure>
           </div>
           <div class="column is-half">
             <figure class="demo-card">
-              <img src="static/images/wmrobot/wmrobot_map_285_log_mppi_paths.gif" alt="Log-MPPI path evolution on modified BARN map 285" loading="lazy">
-              <figcaption>Log-MPPI</figcaption>
+              <video controls muted loop playsinline preload="none" width="638" height="880" poster="static/images/optimized/wmrobot_map_285_log_mppi_paths-poster.webp" aria-label="Log-MPPI path evolution on modified BARN map 285; the run does not reach the goal">
+                <source src="static/videos/web/wmrobot_map_285_log_mppi_paths.mp4" type="video/mp4">
+                Your browser does not support MP4 video.
+              </video>
+              <figcaption>Log-MPPI &mdash; final goal not reached</figcaption>
             </figure>
           </div>
           <div class="column is-half">
             <figure class="demo-card">
-              <img src="static/images/wmrobot/wmrobot_map_285_cluster_mppi_paths.gif" alt="Cluster-MPPI path evolution on modified BARN map 285" loading="lazy">
-              <figcaption>Cluster-MPPI</figcaption>
+              <video controls muted loop playsinline preload="none" width="638" height="880" poster="static/images/optimized/wmrobot_map_285_cluster_mppi_paths-poster.webp" aria-label="Cluster-MPPI path evolution on modified BARN map 285; the run does not reach the goal">
+                <source src="static/videos/web/wmrobot_map_285_cluster_mppi_paths.mp4" type="video/mp4">
+                Your browser does not support MP4 video.
+              </video>
+              <figcaption>Cluster-MPPI (DBSCAN) &mdash; final goal not reached</figcaption>
             </figure>
           </div>
           <div class="column is-half">
             <figure class="demo-card demo-card-highlight">
-              <img src="static/images/wmrobot/wmrobot_map_285_bi_mppi_paths.gif" alt="BiC-MPPI path evolution on modified BARN map 285" loading="lazy">
-              <figcaption>BiC-MPPI (ours)</figcaption>
+              <video controls muted loop playsinline preload="none" width="638" height="880" poster="static/images/optimized/wmrobot_map_285_bi_mppi_paths-poster.webp" aria-label="BiC-MPPI path evolution on modified BARN map 285; the run reaches the goal">
+                <source src="static/videos/web/wmrobot_map_285_bi_mppi_paths.mp4" type="video/mp4">
+                Your browser does not support MP4 video.
+              </video>
+              <figcaption>BiC-MPPI (DBSCAN, ours) &mdash; final goal reached</figcaption>
             </figure>
           </div>
         </div>
 
-        <div class="manipulator-demo">
+        <figure class="manipulator-demo">
           <h3 class="title is-4 has-text-centered">6-DOF Manipulator Planning</h3>
-          <video controls muted loop playsinline preload="metadata">
-            <source src="static/videos/BiC-mppi.mp4" type="video/mp4">
+          <video controls muted loop playsinline preload="metadata" width="1280" height="720" poster="static/images/optimized/bic-mppi-manipulator-poster.webp" aria-describedby="manipulator-demo-caption">
+            <source src="static/videos/web/bic-mppi-manipulator.mp4" type="video/mp4">
             Your browser does not support MP4 video.
           </video>
-          <p>Simulated joint-space planning with task-space collision checking around an axis-aligned obstacle.</p>
-        </div>
+          <figcaption id="manipulator-demo-caption">BiC-MPPI plans in joint space for a simulated 6-DOF manipulator while checking task-space collisions against an axis-aligned bounding-box obstacle.</figcaption>
+        </figure>
       </div>
     </section>
 
-    <section class="section hero is-light" id="dbscan-sensitivity">
+    <section class="section hero is-light" id="appendix">
       <div class="container is-max-desktop">
         <div class="has-text-centered">
-          <h2 class="title is-3">DBSCAN Radius Sensitivity</h2>
+          <h2 class="title is-3">Appendix: Additional WMRobot Experiments</h2>
           <p class="section-intro">
-            Sensitivity of the 2D experiments to the DBSCAN neighborhood radius
-            <em>&epsilon;<sub>max</sub></em>. Times are averaged over successful trials.
+            Additional analyses using the same 600-trial modified BARN wheeled-mobile-robot
+            benchmark and success criterion as the corresponding WMRobot experiments.
           </p>
         </div>
 
-        <div class="table-container sensitivity-table-wrap">
-          <table class="table is-fullwidth is-hoverable sensitivity-table">
+        <div class="appendix-block">
+          <h3 class="title is-4 has-text-centered">A. Sampling-Budget Scaling</h3>
+          <p class="benchmark-caption" id="budget-scaling-description">
+            Performance as the rollout-sampling budget increases from 1,000 to 6,000 samples.
+          </p>
+          <section class="table-container appendix-table-wrap" aria-label="Scrollable sampling-budget scaling results" tabindex="0">
+            <table class="table is-fullwidth is-hoverable appendix-table" aria-describedby="budget-scaling-description budget-scaling-note">
+              <caption class="sr-only">Sampling-budget scaling over 600 modified BARN WMRobot trials</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Method</th>
+                  <th scope="col">Budget</th>
+                  <th scope="col">Success rate [-] &uarr;</th>
+                  <th scope="col">95% CI [-]</th>
+                  <th scope="col">Failures &darr;</th>
+                  <th scope="col">Iterations [steps] &darr;</th>
+                  <th scope="col">Total time [s] &darr;</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">MPPI</th><td>B1000</td><td>0.375</td><td>[0.337, 0.414]</td><td>375</td><td>156.6</td><td>0.077</td>
+                </tr>
+                <tr>
+                  <th scope="row">Cluster-MPPI</th><td>B1000</td><td>0.398</td><td>[0.360, 0.438]</td><td>361</td><td>145.5</td><td>0.245</td>
+                </tr>
+                <tr class="main-setting">
+                  <th scope="row">Full BiC-MPPI <span class="setting-badge">Full</span></th><td>B1000</td><td><strong>0.835</strong></td><td>[0.807, 0.863]</td><td><strong>99</strong></td><td>97.6</td><td>0.608</td>
+                </tr>
+                <tr class="budget-group-start">
+                  <th scope="row">MPPI</th><td>B3000</td><td>0.428</td><td>[0.389, 0.468]</td><td>343</td><td>155.2</td><td>0.103</td>
+                </tr>
+                <tr>
+                  <th scope="row">Cluster-MPPI</th><td>B3000</td><td>0.515</td><td>[0.475, 0.555]</td><td>291</td><td>145.6</td><td>1.654</td>
+                </tr>
+                <tr class="main-setting">
+                  <th scope="row">Full BiC-MPPI <span class="setting-badge">Full</span></th><td>B3000</td><td><strong>0.868</strong></td><td>[0.820, 0.880]</td><td><strong>79</strong></td><td>95.3</td><td>1.552</td>
+                </tr>
+                <tr class="budget-group-start">
+                  <th scope="row">MPPI</th><td>B6000</td><td>0.542</td><td>[0.483, 0.563]</td><td>275</td><td>144.3</td><td>0.330</td>
+                </tr>
+                <tr>
+                  <th scope="row">Cluster-MPPI</th><td>B6000</td><td>0.522</td><td>[0.490, 0.570]</td><td>287</td><td>145.2</td><td>2.085</td>
+                </tr>
+                <tr class="main-setting">
+                  <th scope="row">Full BiC-MPPI <span class="setting-badge">Full</span></th><td>B6000</td><td><strong>0.895</strong></td><td>[0.870, 0.902]</td><td><strong>63</strong></td><td>94.6</td><td>2.540</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <div class="content ablation-note" id="budget-scaling-note">
+            <p>
+              Full BiC-MPPI maintained the highest success rate at every tested sampling budget.
+              Increasing the budget improved its success rate from 0.835 at B1000 to 0.895 at B6000,
+              with the expected increase in solver time.
+            </p>
+            <p class="table-note"><em>B</em> denotes the number of rollout samples. Iteration counts and times are means over successful trials.</p>
+          </div>
+        </div>
+
+        <div class="appendix-block">
+          <h3 class="title is-4 has-text-centered">B. Component Ablation</h3>
+          <p class="benchmark-caption">
+            All rows use the same maps, start states, parameter setting, seed policy,
+            collision checker, and success criterion.
+          </p>
+        <section class="table-container ablation-table-wrap" aria-label="Scrollable component ablation results" tabindex="0">
+          <table class="table is-fullwidth is-hoverable ablation-table" aria-describedby="ablation-note">
+            <caption class="sr-only">Component ablation on 600 modified BARN ground-vehicle trials</caption>
             <thead>
               <tr>
-                <th scope="col">&epsilon;<sub>max</sub></th>
-                <th scope="col">Rollout [s]</th>
-                <th scope="col">Clustering [s]</th>
-                <th scope="col">Connection [s]</th>
-                <th scope="col">Guide [s]</th>
-                <th scope="col">SR [%] &uarr;</th>
+                <th scope="col">Method</th>
+                <th scope="col">Success rate [-] &uarr;</th>
+                <th scope="col">Failures &darr;</th>
+                <th scope="col">Iterations [steps] &darr;</th>
                 <th scope="col">Time [s] &darr;</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <th scope="row">0.100</th>
-                <td>0.110</td>
-                <td>0.016</td>
-                <td>0.001</td>
-                <td>0.021</td>
-                <td>66.3</td>
-                <td><strong>0.148</strong></td>
+                <th scope="row">MPPI</th>
+                <td>0.522</td>
+                <td>287</td>
+                <td>104.6</td>
+                <td><strong>0.244</strong></td>
               </tr>
               <tr>
-                <th scope="row">0.050</th>
-                <td>0.110</td>
-                <td>113.639</td>
-                <td>0.160</td>
-                <td>0.841</td>
-                <td><strong>96.8</strong></td>
-                <td>114.750</td>
+                <th scope="row">Cluster-MPPI</th>
+                <td>0.600</td>
+                <td>240</td>
+                <td>101.6</td>
+                <td>10.949</td>
+              </tr>
+              <tr>
+                <th scope="row">BiC-MPPI without clustering</th>
+                <td>0.927</td>
+                <td>44</td>
+                <td>98.0</td>
+                <td>0.415</td>
+              </tr>
+              <tr>
+                <th scope="row">BiC-MPPI without Guide MPPI</th>
+                <td>0.882</td>
+                <td>71</td>
+                <td>84.0</td>
+                <td>3.544</td>
               </tr>
               <tr class="main-setting">
-                <th scope="row">0.010 <span class="setting-badge">Main</span></th>
-                <td>0.114</td>
-                <td>3.620</td>
-                <td>0.017</td>
-                <td>0.383</td>
-                <td>95.3</td>
-                <td>4.134</td>
-              </tr>
-              <tr>
-                <th scope="row">0.005</th>
-                <td>0.115</td>
-                <td>0.840</td>
-                <td>0.002</td>
-                <td>0.142</td>
-                <td>94.2</td>
-                <td>1.099</td>
-              </tr>
-              <tr>
-                <th scope="row">0.001</th>
-                <td>0.109</td>
-                <td>1.162</td>
-                <td>0.001</td>
-                <td>0.102</td>
-                <td>93.2</td>
-                <td>1.375</td>
+                <th scope="row">Full BiC-MPPI <span class="setting-badge">Full</span></th>
+                <td><strong>0.965</strong></td>
+                <td><strong>21</strong></td>
+                <td>93.5</td>
+                <td>4.238</td>
               </tr>
             </tbody>
           </table>
-        </div>
+        </section>
 
-        <div class="content sensitivity-note">
+        <div class="content ablation-note" id="ablation-note">
           <p>
-            The main experiments use <em>&epsilon;<sub>max</sub> = 0.01</em> as a
-            reliability&ndash;runtime trade-off point. Although
-            <em>&epsilon;<sub>max</sub> = 0.050</em> gives the highest observed success
-            rate of <strong>96.8%</strong>, it requires <strong>114.750 s</strong> of
-            total elapsed computation.
+            Full BiC-MPPI achieved the highest success rate in this controlled ablation.
+            Removing Guide MPPI or explicit clustering reduced success, while the no-clustering
+            variant retained a substantial gain over the evaluated unidirectional configurations.
           </p>
-          <p class="table-note">SR: success rate; times: successful trials.</p>
+          <p class="table-note">Rates are fractions. Iteration counts and times are means over successful trials. This controlled ablation uses its own shared protocol, so its rows should not be compared one-for-one with the main benchmark table above.</p>
+        </div>
         </div>
       </div>
     </section>
@@ -484,130 +586,149 @@
     <section class="section" id="waypoint-usage">
       <div class="container is-max-desktop">
         <div class="has-text-centered">
-          <h2 class="title is-3">Waypoint-assisted Usage Case</h2>
+          <p class="section-kicker">Website-only supplementary experiment &middot; Not reported in the paper</p>
+          <h2 class="title is-3">Waypoint-Assisted Use Case</h2>
           <p class="section-intro">
-            This supplementary use case, which is not included in the paper, is constructed by
-            stitching together five WMRobot maps and setting the goal of each map as a waypoint.
-            All planners receive the same waypoint sequence.
+            Each scenario concatenates five modified BARN maps for the wheeled-mobile-robot setup.
+            The goal at the end of each constituent map becomes the next target waypoint, yielding
+            five target waypoints after the initial state. All planners receive the same ordered sequence.
           </p>
         </div>
 
         <div class="content waypoint-description">
           <p>
-            BiC-MPPI uses the waypoints to perform bidirectional rollouts for multiple segments
-            in parallel and connect the resulting waypoint-guided branches. In contrast, the
-            MPPI variants&mdash;MPPI, Log-MPPI, and Cluster-MPPI&mdash;follow the waypoint sequence
-            one waypoint at a time, using each waypoint as the current tracking target before
-            proceeding to the next. Across 10 waypoint-assisted scenarios, these MPPI variants
-            do not reach the final goal, whereas BiC-MPPI succeeds in 6 of 10 scenarios and
-            reaches all six waypoints on average.
+            The supplementary BiC-MPPI extension uses the remaining waypoint segments as references.
+            For each segment, forward and heuristic backward samples are evaluated in GPU-parallel
+            rollout batches; the connected segment references are then concatenated and refined by
+            a global Guide MPPI pass. In contrast, MPPI, Log-MPPI, and Cluster-MPPI track one target
+            waypoint at a time and advance only after reaching the current target. In the reported
+            10-scenario run, none of these three sequential configurations reached the final goal,
+            whereas the supplementary BiC-MPPI extension succeeded in 6 scenarios.
           </p>
         </div>
 
         <figure class="waypoint-overview">
-          <img src="static/images/waypoint/wmrobot_stitched_paths_scenario_00.png" alt="Final paths of MPPI variants across the five-room waypoint-assisted WMRobot scenario" loading="lazy">
+          <img src="static/images/waypoint/wmrobot_stitched_paths_scenario_00.png" width="2160" height="864" alt="Final trajectories for MPPI, Log-MPPI, Cluster-MPPI, and BiC-MPPI in a five-map stitched modified-BARN scenario; only BiC-MPPI reaches the final goal" loading="lazy" decoding="async">
           <figcaption>
-            Final path comparison for waypoint-assisted scenario. The unidirectional baselines
-            terminate before the final goal, while BiC-MPPI connects the waypoint-guided segments
-            and traverses the complete stitched environment.
+            Final-path comparison for supplementary scenario 00. In this example, the sequential
+            configurations terminate before the final goal, while BiC-MPPI traverses the full stitched environment.
+            <a class="figure-link" href="static/images/waypoint/wmrobot_stitched_paths_scenario_00.png" target="_blank" rel="noopener">Open the full-resolution figure</a>.
           </figcaption>
         </figure>
 
         <div class="waypoint-animation-heading has-text-centered">
-          <h3 class="title is-4">Waypoint-guided Path Evolution</h3>
+          <h3 class="title is-4">Scenario 00: Waypoint-Guided Path Evolution</h3>
         </div>
 
         <div class="columns is-multiline waypoint-animation-grid">
           <div class="column is-half">
             <figure class="demo-card waypoint-demo-card">
-              <img src="static/images/waypoint/wmrobot_stitched_mppi_scenario_00.gif" alt="MPPI waypoint-assisted path evolution in scenario 00" loading="lazy">
-              <figcaption>MPPI</figcaption>
+              <video controls muted loop playsinline preload="none" width="1440" height="504" poster="static/images/optimized/wmrobot_stitched_mppi_scenario_00-poster.webp" aria-label="MPPI sequential waypoint tracking in stitched scenario 00; the run does not reach the final goal">
+                <source src="static/videos/web/wmrobot_stitched_mppi_scenario_00.mp4" type="video/mp4">
+                Your browser does not support MP4 video.
+              </video>
+              <figcaption>MPPI &mdash; final goal not reached</figcaption>
             </figure>
           </div>
           <div class="column is-half">
             <figure class="demo-card waypoint-demo-card">
-              <img src="static/images/waypoint/wmrobot_stitched_log_mppi_scenario_00.gif" alt="Log-MPPI waypoint-assisted path evolution in scenario 00" loading="lazy">
-              <figcaption>Log-MPPI</figcaption>
+              <video controls muted loop playsinline preload="none" width="1440" height="504" poster="static/images/optimized/wmrobot_stitched_log_mppi_scenario_00-poster.webp" aria-label="Log-MPPI sequential waypoint tracking in stitched scenario 00; the run does not reach the final goal">
+                <source src="static/videos/web/wmrobot_stitched_log_mppi_scenario_00.mp4" type="video/mp4">
+                Your browser does not support MP4 video.
+              </video>
+              <figcaption>Log-MPPI &mdash; final goal not reached</figcaption>
             </figure>
           </div>
           <div class="column is-half">
             <figure class="demo-card waypoint-demo-card">
-              <img src="static/images/waypoint/wmrobot_stitched_cluster_mppi_scenario_00.gif" alt="Cluster-MPPI waypoint-assisted path evolution in scenario 00" loading="lazy">
-              <figcaption>Cluster-MPPI</figcaption>
+              <video controls muted loop playsinline preload="none" width="1440" height="504" poster="static/images/optimized/wmrobot_stitched_cluster_mppi_scenario_00-poster.webp" aria-label="Cluster-MPPI sequential waypoint tracking in stitched scenario 00; the run does not reach the final goal">
+                <source src="static/videos/web/wmrobot_stitched_cluster_mppi_scenario_00.mp4" type="video/mp4">
+                Your browser does not support MP4 video.
+              </video>
+              <figcaption>Cluster-MPPI &mdash; final goal not reached</figcaption>
             </figure>
           </div>
           <div class="column is-half">
             <figure class="demo-card demo-card-highlight waypoint-demo-card">
-              <img src="static/images/waypoint/wmrobot_stitched_bi_mppi_scenario_00.gif" alt="BiC-MPPI waypoint-assisted bidirectional path evolution in scenario 00" loading="lazy">
-              <figcaption>BiC-MPPI (ours)</figcaption>
+              <video controls muted loop playsinline preload="none" width="1440" height="504" poster="static/images/optimized/wmrobot_stitched_bi_mppi_scenario_00-poster.webp" aria-label="BiC-MPPI waypoint-guided bidirectional rollout planning in stitched scenario 00; the run reaches the final goal">
+                <source src="static/videos/web/wmrobot_stitched_bi_mppi_scenario_00.mp4" type="video/mp4">
+                Your browser does not support MP4 video.
+              </video>
+              <figcaption>BiC-MPPI (ours) &mdash; final goal reached</figcaption>
             </figure>
           </div>
         </div>
 
-        <div class="table-container waypoint-table-wrap">
-          <table class="table is-fullwidth is-hoverable waypoint-table">
+        <section class="table-container waypoint-table-wrap" aria-label="Scrollable supplementary waypoint results" tabindex="0">
+          <table class="table is-fullwidth is-hoverable waypoint-table" aria-describedby="waypoint-results-note">
+            <caption class="sr-only">Waypoint-assisted planning over 10 stitched-map scenarios</caption>
             <thead>
               <tr>
                 <th scope="col">Method</th>
                 <th scope="col">Scenarios</th>
-                <th scope="col">SR [-] &uarr;</th>
-                <th scope="col">Time [s] &darr;</th>
-                <th scope="col">Reached WP [-] &uarr;</th>
+                <th scope="col">Success rate [%] &uarr;</th>
+                <th scope="col">Mean solver time [s] &darr;</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <th scope="row">MPPI</th>
                 <td>10</td>
-                <td>0.0</td>
+                <td>0</td>
                 <td>0.180</td>
-                <td>1.1</td>
               </tr>
               <tr>
                 <th scope="row">Log-MPPI</th>
                 <td>10</td>
-                <td>0.0</td>
+                <td>0</td>
                 <td>0.229</td>
-                <td>1.0</td>
               </tr>
               <tr>
                 <th scope="row">Cluster-MPPI</th>
                 <td>10</td>
-                <td>0.0</td>
+                <td>0</td>
                 <td>1.504</td>
-                <td>1.0</td>
               </tr>
               <tr class="ours-setting">
                 <th scope="row">BiC-MPPI <span class="setting-badge">Ours</span></th>
                 <td>10</td>
-                <td><strong>0.6</strong></td>
+                <td><strong>60</strong></td>
                 <td>9.279</td>
-                <td><strong>6.0</strong></td>
               </tr>
             </tbody>
           </table>
-        </div>
+        </section>
 
-        <div class="content waypoint-conclusion">
+        <div class="content waypoint-conclusion" id="waypoint-results-note">
           <p>
-            The result shows that BiC-MPPI can serve as a local bidirectional connector when
-            coarse waypoint information is available, at the cost of additional computation.
+            These supplementary results illustrate how BiC-MPPI can use coarse waypoint guidance
+            to connect locally generated trajectory segments across a longer environment. Under the
+            tested configurations, this capability required more computation than the sequential variants.
           </p>
-          <p class="table-note">SR: success rate; WP: waypoint.</p>
+          <p class="table-note">Success requires collision-free completion within 0.45 m of the final goal. Mean solver time is accumulated over each scenario and averaged across all 10 scenarios, including failures. These results are not part of the paper benchmark.</p>
         </div>
       </div>
     </section>
 
     <section class="section" id="BibTeX">
       <div class="container is-max-desktop content">
-        <div class="bibtex-header">
-          <h2 class="title">BibTeX</h2>
-          <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
-            <i class="fas fa-copy"></i>
-            <span class="copy-text">Copy</span>
-          </button>
-        </div>
-        <pre id="bibtex-code"><code>@article{jung2024bicmppi,
+        <h2 class="title">Citation</h2>
+        <p class="citation-note">
+          Please cite the arXiv preprint using the BibTeX entry below.
+        </p>
+
+        <div class="citation-block">
+          <div class="bibtex-header">
+            <h3 class="title is-5">arXiv Preprint (2024)</h3>
+            <button type="button" class="copy-bibtex-btn" data-copy-target="bibtex-arxiv" aria-label="Copy arXiv BibTeX to clipboard">
+              <svg class="inline-icon" aria-hidden="true" viewBox="0 0 24 24">
+                <rect x="8" y="8" width="11" height="12" rx="2"></rect>
+                <path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h2"></path>
+              </svg>
+              <span class="copy-text" aria-live="polite">Copy</span>
+            </button>
+          </div>
+          <pre id="bibtex-arxiv"><code>@article{jung2024bicmppi,
   title         = {BiC-MPPI: Goal-Pursuing, Sampling-Based Bidirectional Rollout Clustering Path Integral for Trajectory Optimization},
   author        = {Jung, Minchan and Kim, Kwangki},
   year          = {2024},
@@ -618,6 +739,10 @@
   doi           = {10.48550/arXiv.2410.06493},
   url           = {https://arxiv.org/abs/2410.06493}
 }</code></pre>
+          <p class="citation-version-link">
+            See the <a href="https://arxiv.org/abs/2410.06493" target="_blank" rel="noopener">public arXiv record</a>.
+          </p>
+        </div>
       </div>
     </section>
   </main>
