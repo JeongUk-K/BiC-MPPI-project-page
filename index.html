@@ -180,10 +180,10 @@
   connections as references for Guide MPPI refinement under forward
   dynamics. The backward branches are used only as goal-side heuristic
   references and are not directly executed. In 600 modified BARN
-  navigation trials, BiC-MPPI achieved a 97.3\% success rate, compared
-  with 47.7--54.2\% for the evaluated unidirectional baselines. In 240
+  navigation trials, BiC-MPPI achieved a 97.3% success rate, compared
+  with 47.7--54.2% for the evaluated unidirectional baselines. In 240
   simulated 6-DOF manipulator tasks, the best BiC-MPPI configuration
-  achieved a 41.7\% success rate, compared with 10.0--22.5\% for the
+  achieved a 41.7% success rate, compared with 10.0--22.5% for the
   evaluated baselines. These improvements come with additional backward
   rollouts, clustering, branch association, and Guide MPPI refinement;
   accordingly, we report a stage-wise runtime breakdown to characterize
@@ -262,7 +262,7 @@
                   <tr>
                     <th scope="col">Method</th>
                     <th scope="col">Successes &uarr;</th>
-                    <th scope="col">Success rate [-] &uarr;</th>
+                    <th scope="col">Success rate [%] &uarr;</th>
                     <th scope="col">Failures &darr;</th>
                     <th scope="col">Collisions &darr;</th>
                     <th scope="col">Iterations &darr;</th>
@@ -276,32 +276,32 @@
                 <tbody>
                   <tr>
                     <th scope="row">MPPI</th>
-                    <td>325</td><td>0.542</td><td>275</td><td>18</td><td>106.0 [98.0, 113.0]</td>
+                    <td>325</td><td>54.2</td><td>275</td><td>18</td><td>106.0 [98.0, 113.0]</td>
                     <td>0.244 [0.226, 0.260]</td><td>0.244 [0.226, 0.260]</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td>
                   </tr>
                   <tr>
                     <th scope="row">Log-MPPI</th>
-                    <td>286</td><td>0.477</td><td>314</td><td>8</td><td>106.0 [97.2, 114.0]</td>
+                    <td>286</td><td>47.7</td><td>314</td><td>8</td><td>106.0 [97.2, 114.0]</td>
                     <td>0.202 [0.186, 0.217]</td><td>0.202 [0.186, 0.217]</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td>
                   </tr>
                   <tr>
                     <th scope="row">Cluster-MPPI (DBSCAN)</th>
-                    <td>313</td><td>0.522</td><td>287</td><td>18</td><td>104.0 [96.0, 112.0]</td>
+                    <td>313</td><td>52.2</td><td>287</td><td>18</td><td>104.0 [96.0, 112.0]</td>
                     <td>1.435 [1.303, 1.619]</td><td>0.161 [0.148, 0.174]</td><td>1.273 [1.155, 1.445]</td><td>&mdash;</td><td>&mdash;</td>
                   </tr>
                   <tr>
                     <th scope="row">Cluster-MPPI (K-means)</th>
-                    <td>287</td><td>0.478</td><td>313</td><td>13</td><td>105.0 [97.0, 113.0]</td>
+                    <td>287</td><td>47.8</td><td>313</td><td>13</td><td>105.0 [97.0, 113.0]</td>
                     <td>1.851 [1.678, 2.037]</td><td>0.112 [0.105, 0.121]</td><td>1.740 [1.573, 1.915]</td><td>&mdash;</td><td>&mdash;</td>
                   </tr>
                   <tr class="ours-setting">
                     <th scope="row">BiC-MPPI (DBSCAN) <span class="setting-badge">Ours</span></th>
-                    <td>537</td><td>0.895</td><td>63</td><td>47</td><td>96.0 [88.0, 104.0]</td>
+                    <td>537</td><td>89.5</td><td>63</td><td>47</td><td>96.0 [88.0, 104.0]</td>
                     <td>2.362 [1.890, 3.413]</td><td>0.190 [0.174, 0.210]</td><td>1.966 [1.530, 3.022]</td><td>0.002 [0.001, 0.002]</td><td>0.183 [0.167, 0.202]</td>
                   </tr>
                   <tr class="ours-setting best-setting">
                     <th scope="row">BiC-MPPI (K-means) <span class="setting-badge">Ours</span></th>
-                    <td><strong>584</strong></td><td><strong>0.973</strong></td><td><strong>16</strong></td><td>10</td><td><strong>82.0 [77.0, 89.0]</strong></td>
+                    <td><strong>584</strong></td><td><strong>97.3</strong></td><td><strong>16</strong></td><td>10</td><td><strong>82.0 [77.0, 89.0]</strong></td>
                     <td>3.017 [2.738, 3.264]</td><td>0.091 [0.086, 0.099]</td><td>2.342 [2.104, 2.565]</td><td>0.022 [0.021, 0.024]</td><td>0.549 [0.504, 0.600]</td>
                   </tr>
                 </tbody>
@@ -325,10 +325,10 @@
                   <tr>
                     <th scope="col">Method</th>
                     <th scope="col">Successes &uarr;</th>
-                    <th scope="col">Overall SR [-] &uarr;</th>
-                    <th scope="col">Strict goal [-] &uarr;</th>
-                    <th scope="col">EE + velocity [-] &uarr;</th>
-                    <th scope="col">Collision-free [-] &uarr;</th>
+                    <th scope="col">Overall SR [%] &uarr;</th>
+                    <th scope="col">Strict goal [%] &uarr;</th>
+                    <th scope="col">EE + velocity [%] &uarr;</th>
+                    <th scope="col">Collision-free [%] &uarr;</th>
                     <th scope="col">Iterations [steps] &darr;</th>
                     <th scope="col">Wall time [s] &darr;</th>
                   </tr>
@@ -336,27 +336,27 @@
                 <tbody>
                   <tr>
                     <th scope="row">MPPI</th>
-                    <td>50</td><td>0.208</td><td>0.250</td><td>0.379</td><td>0.708</td><td>135.0</td><td>3.821</td>
+                    <td>50</td><td>20.8</td><td>25.0</td><td>37.9</td><td>70.8</td><td>135.0</td><td>3.821</td>
                   </tr>
                   <tr>
                     <th scope="row">Log-MPPI</th>
-                    <td>53</td><td>0.221</td><td>0.254</td><td>0.375</td><td>0.721</td><td>134.5</td><td>3.805</td>
+                    <td>53</td><td>22.1</td><td>25.4</td><td>37.5</td><td>72.1</td><td>134.5</td><td>3.805</td>
                   </tr>
                   <tr>
                     <th scope="row">Cluster-MPPI (K-means)</th>
-                    <td>24</td><td>0.100</td><td>0.113</td><td>0.192</td><td>0.721</td><td>141.8</td><td>5.817</td>
+                    <td>24</td><td>10.0</td><td>11.3</td><td>19.2</td><td>72.1</td><td>141.8</td><td>5.817</td>
                   </tr>
                   <tr>
                     <th scope="row">Cluster-MPPI (DBSCAN)</th>
-                    <td>54</td><td>0.225</td><td>0.258</td><td>0.383</td><td>0.721</td><td>134.8</td><td>5.617</td>
+                    <td>54</td><td>22.5</td><td>25.8</td><td>38.3</td><td>72.1</td><td>134.8</td><td>5.617</td>
                   </tr>
                   <tr class="ours-setting best-setting">
                     <th scope="row">BiC-MPPI (K-means) <span class="setting-badge">Ours</span></th>
-                    <td><strong>100</strong></td><td><strong>0.417</strong></td><td><strong>0.471</strong></td><td><strong>0.546</strong></td><td><strong>0.738</strong></td><td>92.1</td><td>11.599</td>
+                    <td><strong>100</strong></td><td><strong>41.7</strong></td><td><strong>47.1</strong></td><td><strong>54.6</strong></td><td><strong>73.8</strong></td><td>92.1</td><td>11.599</td>
                   </tr>
                   <tr class="ours-setting">
                     <th scope="row">BiC-MPPI (DBSCAN) <span class="setting-badge">Ours</span></th>
-                    <td>96</td><td>0.400</td><td>0.467</td><td>0.529</td><td>0.733</td><td>85.5</td><td>4.554</td>
+                    <td>96</td><td>40.0</td><td>46.7</td><td>52.9</td><td>73.3</td><td>85.5</td><td>4.554</td>
                   </tr>
                 </tbody>
               </table>
@@ -467,8 +467,8 @@
                 <tr>
                   <th scope="col">Method</th>
                   <th scope="col">Budget</th>
-                  <th scope="col">Success rate [-] &uarr;</th>
-                  <th scope="col">95% CI [-]</th>
+                  <th scope="col">Success rate [%] &uarr;</th>
+                  <th scope="col">95% CI [%]</th>
                   <th scope="col">Failures &darr;</th>
                   <th scope="col">Iterations [steps] &darr;</th>
                   <th scope="col">Total time [s] &darr;</th>
@@ -476,31 +476,31 @@
               </thead>
               <tbody>
                 <tr>
-                  <th scope="row">MPPI</th><td>B1000</td><td>0.375</td><td>[0.337, 0.414]</td><td>375</td><td>156.6</td><td>0.077</td>
+                  <th scope="row">MPPI</th><td>B1000</td><td>37.5</td><td>[33.7, 41.4]</td><td>375</td><td>156.6</td><td>0.077</td>
                 </tr>
                 <tr>
-                  <th scope="row">Cluster-MPPI</th><td>B1000</td><td>0.398</td><td>[0.360, 0.438]</td><td>361</td><td>145.5</td><td>0.245</td>
+                  <th scope="row">Cluster-MPPI</th><td>B1000</td><td>39.8</td><td>[36.0, 43.8]</td><td>361</td><td>145.5</td><td>0.245</td>
                 </tr>
                 <tr class="main-setting">
-                  <th scope="row">Full BiC-MPPI <span class="setting-badge">Full</span></th><td>B1000</td><td><strong>0.835</strong></td><td>[0.807, 0.863]</td><td><strong>99</strong></td><td>97.6</td><td>0.608</td>
+                  <th scope="row">Full BiC-MPPI <span class="setting-badge">Full</span></th><td>B1000</td><td><strong>83.5</strong></td><td>[80.7, 86.3]</td><td><strong>99</strong></td><td>97.6</td><td>0.608</td>
                 </tr>
                 <tr class="budget-group-start">
-                  <th scope="row">MPPI</th><td>B3000</td><td>0.428</td><td>[0.389, 0.468]</td><td>343</td><td>155.2</td><td>0.103</td>
+                  <th scope="row">MPPI</th><td>B3000</td><td>42.8</td><td>[38.9, 46.8]</td><td>343</td><td>155.2</td><td>0.103</td>
                 </tr>
                 <tr>
-                  <th scope="row">Cluster-MPPI</th><td>B3000</td><td>0.515</td><td>[0.475, 0.555]</td><td>291</td><td>145.6</td><td>1.654</td>
+                  <th scope="row">Cluster-MPPI</th><td>B3000</td><td>51.5</td><td>[47.5, 55.5]</td><td>291</td><td>145.6</td><td>1.654</td>
                 </tr>
                 <tr class="main-setting">
-                  <th scope="row">Full BiC-MPPI <span class="setting-badge">Full</span></th><td>B3000</td><td><strong>0.868</strong></td><td>[0.820, 0.880]</td><td><strong>79</strong></td><td>95.3</td><td>1.552</td>
+                  <th scope="row">Full BiC-MPPI <span class="setting-badge">Full</span></th><td>B3000</td><td><strong>86.8</strong></td><td>[82.0, 88.0]</td><td><strong>79</strong></td><td>95.3</td><td>1.552</td>
                 </tr>
                 <tr class="budget-group-start">
-                  <th scope="row">MPPI</th><td>B6000</td><td>0.542</td><td>[0.483, 0.563]</td><td>275</td><td>144.3</td><td>0.330</td>
+                  <th scope="row">MPPI</th><td>B6000</td><td>54.2</td><td>[48.3, 56.3]</td><td>275</td><td>144.3</td><td>0.330</td>
                 </tr>
                 <tr>
-                  <th scope="row">Cluster-MPPI</th><td>B6000</td><td>0.522</td><td>[0.490, 0.570]</td><td>287</td><td>145.2</td><td>2.085</td>
+                  <th scope="row">Cluster-MPPI</th><td>B6000</td><td>52.2</td><td>[49.0, 57.0]</td><td>287</td><td>145.2</td><td>2.085</td>
                 </tr>
                 <tr class="main-setting">
-                  <th scope="row">Full BiC-MPPI <span class="setting-badge">Full</span></th><td>B6000</td><td><strong>0.895</strong></td><td>[0.870, 0.902]</td><td><strong>63</strong></td><td>94.6</td><td>2.540</td>
+                  <th scope="row">Full BiC-MPPI <span class="setting-badge">Full</span></th><td>B6000</td><td><strong>89.5</strong></td><td>[87.0, 90.2]</td><td><strong>63</strong></td><td>94.6</td><td>2.540</td>
                 </tr>
               </tbody>
             </table>
@@ -508,7 +508,7 @@
           <div class="content ablation-note" id="budget-scaling-note">
             <p>
               Full BiC-MPPI maintained the highest success rate at every tested sampling budget.
-              Increasing the budget improved its success rate from 0.835 at B1000 to 0.895 at B6000,
+              Increasing the budget improved its success rate from 83.5% at B1000 to 89.5% at B6000,
               with the expected increase in solver time.
             </p>
             <p class="table-note"><em>B</em> denotes the number of rollout samples. Iteration counts and times are means over successful trials.</p>
@@ -527,7 +527,7 @@
             <thead>
               <tr>
                 <th scope="col">Method</th>
-                <th scope="col">Success rate [-] &uarr;</th>
+                <th scope="col">Success rate [%] &uarr;</th>
                 <th scope="col">Failures &darr;</th>
                 <th scope="col">Iterations [steps] &darr;</th>
                 <th scope="col">Time [s] &darr;</th>
@@ -536,35 +536,35 @@
             <tbody>
               <tr>
                 <th scope="row">MPPI</th>
-                <td>0.542</td>
+                <td>54.2</td>
                 <td>275</td>
                 <td>106.2</td>
                 <td><strong>0.244</strong></td>
               </tr>
               <tr>
                 <th scope="row">Cluster-MPPI</th>
-                <td>0.522</td>
+                <td>52.2</td>
                 <td>287</td>
                 <td>104.7</td>
                 <td>1.495</td>
               </tr>
               <tr>
                 <th scope="row">BiC-MPPI without clustering</th>
-                <td>0.927</td>
+                <td>92.7</td>
                 <td>44</td>
                 <td>98.0</td>
                 <td>0.415</td>
               </tr>
               <tr>
                 <th scope="row">BiC-MPPI without Guide MPPI</th>
-                <td>0.882</td>
+                <td>88.2</td>
                 <td>71</td>
                 <td>84.0</td>
                 <td>3.544</td>
               </tr>
               <tr class="main-setting">
                 <th scope="row">Full BiC-MPPI <span class="setting-badge">Full</span></th>
-                <td><strong>0.973</strong></td>
+                <td><strong>97.3</strong></td>
                 <td><strong>16</strong></td>
                 <td>83.8</td>
                 <td>3.017</td>
@@ -575,9 +575,9 @@
 
         <div class="content ablation-note" id="ablation-note">
           <p>
-            Full BiC-MPPI with K-means achieved the highest success rate, 0.973, in this controlled ablation.
-            Removing clustering reduced the success rate to 0.927, while removing Guide MPPI
-            reduced it to 0.882.
+            Full BiC-MPPI with K-means achieved the highest success rate, 97.3%, in this controlled ablation.
+            Removing clustering reduced the success rate to 92.7%, while removing Guide MPPI
+            reduced it to 88.2%.
           </p>
           <p>
             <strong>BiC-MPPI without Guide MPPI</strong> retains the forward&ndash;backward branch-connection
@@ -586,7 +586,7 @@
             representatives with the 8 lowest-cost rollouts from each direction, treating each
             selected rollout as an individual branch representative.
           </p>
-          <p class="table-note">Rates are fractions. Iteration counts and times are means over successful trials. Cluster-MPPI uses DBSCAN, and Full BiC-MPPI uses K-means.</p>
+          <p class="table-note">Rates are percentages. Iteration counts and times are means over successful trials. Cluster-MPPI uses DBSCAN, and Full BiC-MPPI uses K-means.</p>
         </div>
         </div>
       </div>
