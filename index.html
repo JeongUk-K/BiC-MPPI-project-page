@@ -264,40 +264,40 @@
                 <tbody>
                   <tr>
                     <th scope="row">MPPI</th>
-                    <td>325</td><td>0.542</td><td>275</td><td>18</td><td>144.3</td>
-                    <td>0.330</td><td>0.330</td><td>0</td><td>0</td><td>0</td>
+                    <td>325</td><td>0.542</td><td>275</td><td>18</td><td>106.0 [98.0, 113.0]</td>
+                    <td>0.244 [0.226, 0.260]</td><td>0.244 [0.226, 0.260]</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td>
                   </tr>
                   <tr>
                     <th scope="row">Log-MPPI</th>
-                    <td>286</td><td>0.477</td><td>314</td><td>8</td><td>153.6</td>
-                    <td>0.291</td><td>0.291</td><td>0</td><td>0</td><td>0</td>
+                    <td>286</td><td>0.477</td><td>314</td><td>8</td><td>106.0 [97.2, 114.0]</td>
+                    <td>0.202 [0.186, 0.217]</td><td>0.202 [0.186, 0.217]</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td>
                   </tr>
                   <tr>
                     <th scope="row">Cluster-MPPI (DBSCAN)</th>
-                    <td>313</td><td>0.522</td><td>287</td><td>18</td><td>145.2</td>
-                    <td>2.085</td><td>0.224</td><td>1.862</td><td>0</td><td>0</td>
+                    <td>313</td><td>0.522</td><td>287</td><td>18</td><td>104.0 [96.0, 112.0]</td>
+                    <td>1.435 [1.303, 1.619]</td><td>0.161 [0.148, 0.174]</td><td>1.273 [1.155, 1.445]</td><td>&mdash;</td><td>&mdash;</td>
                   </tr>
                   <tr>
                     <th scope="row">Cluster-MPPI (K-means)</th>
-                    <td>287</td><td>0.478</td><td>313</td><td>13</td><td>151.3</td>
-                    <td>2.693</td><td>0.161</td><td>2.532</td><td>0</td><td>0</td>
+                    <td>287</td><td>0.478</td><td>313</td><td>13</td><td>105.0 [97.0, 113.0]</td>
+                    <td>1.851 [1.678, 2.037]</td><td>0.112 [0.105, 0.121]</td><td>1.740 [1.573, 1.915]</td><td>&mdash;</td><td>&mdash;</td>
                   </tr>
                   <tr class="ours-setting">
                     <th scope="row">BiC-MPPI (DBSCAN) <span class="setting-badge">Ours</span></th>
-                    <td>537</td><td>0.895</td><td>63</td><td>47</td><td>94.6</td>
-                    <td>2.540</td><td>0.189</td><td>2.167</td><td>0.002</td><td>0.182</td>
+                    <td>537</td><td>0.895</td><td>63</td><td>47</td><td>96.0 [88.0, 104.0]</td>
+                    <td>2.362 [1.890, 3.413]</td><td>0.190 [0.174, 0.210]</td><td>1.966 [1.530, 3.022]</td><td>0.002 [0.001, 0.002]</td><td>0.183 [0.167, 0.202]</td>
                   </tr>
                   <tr class="ours-setting best-setting">
                     <th scope="row">BiC-MPPI (K-means) <span class="setting-badge">Ours</span></th>
-                    <td><strong>584</strong></td><td><strong>0.973</strong></td><td><strong>16</strong></td><td>10</td><td><strong>84.1</strong></td>
-                    <td>3.026</td><td>0.093</td><td>2.356</td><td>0.023</td><td>0.554</td>
+                    <td><strong>584</strong></td><td><strong>0.973</strong></td><td><strong>16</strong></td><td>10</td><td><strong>82.0 [77.0, 89.0]</strong></td>
+                    <td>3.017 [2.738, 3.264]</td><td>0.091 [0.086, 0.099]</td><td>2.342 [2.104, 2.565]</td><td>0.022 [0.021, 0.024]</td><td>0.549 [0.504, 0.600]</td>
                   </tr>
                 </tbody>
               </table>
             </section>
             <p class="benchmark-note" id="ground-results-note">
-              Iteration counts and times are means over successful trials.
-              Stage times may not sum exactly to the total because of rounding and measurement overhead.
+              Iteration and timing entries are median [Q1, Q3] over successful trials; &mdash; denotes not applicable.
+              Stage-wise medians need not sum to the total median.
             </p>
           </div>
 
@@ -526,15 +526,15 @@
                 <th scope="row">MPPI</th>
                 <td>0.542</td>
                 <td>275</td>
-                <td>144.3</td>
-                <td><strong>0.330</strong></td>
+                <td>106.2</td>
+                <td><strong>0.244</strong></td>
               </tr>
               <tr>
                 <th scope="row">Cluster-MPPI</th>
                 <td>0.522</td>
                 <td>287</td>
-                <td>145.2</td>
-                <td>2.085</td>
+                <td>104.7</td>
+                <td>1.495</td>
               </tr>
               <tr>
                 <th scope="row">BiC-MPPI without clustering</th>
@@ -554,8 +554,8 @@
                 <th scope="row">Full BiC-MPPI <span class="setting-badge">Full</span></th>
                 <td><strong>0.973</strong></td>
                 <td><strong>16</strong></td>
-                <td>84.1</td>
-                <td>3.026</td>
+                <td>83.8</td>
+                <td>3.017</td>
               </tr>
             </tbody>
           </table>
